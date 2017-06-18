@@ -1,0 +1,10 @@
+{
+    "mexico": {
+        "country": "Mexico",
+        "slug": "mexican-tacos-are-cool"
+    },
+    "brazil": {
+        "country": "Brazil",
+        "slug": "brazil-is-a-country"
+    }
+}

@@ -7,6 +7,7 @@ var browserify = require('browserify');
 
 fs.removeSync('.build');
 fs.mkdirsSync('.build');
+fs.mkdirsSync('.build/recipes');
 
 // HTML
 var partials = glob.readdirSync('src/templates/**/*.html');
@@ -28,7 +29,14 @@ function buildHTMLFile(template, pageData = {}, dest = template) {
     fs.writeFileSync('.build/' + dest + '.html', template(data));
 }
 
+var recipes = require('../data/recipes.json');
+
+for (var i in recipes) {
+    buildHTMLFile('recipes', require('../data/recipes/' + i + '.json'), 'recipes/' + recipes[i].slug)
+}
+
 buildHTMLFile('index');
+
 
 // CSS
 var css = sass.renderSync({
