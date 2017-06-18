@@ -1,0 +1,25 @@
+{
+  "name": "the-world-cook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammorrisdesign/the-world-cook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sammorrisdesign/the-world-cook/issues"
+  },
+  "homepage": "https://github.com/sammorrisdesign/the-world-cook#readme",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "deasync": "^0.1.10",
+    "fs-extra": "^3.0.1",
+    "glob-fs": "^0.1.6",
+    "handlebars": "^4.0.10",
+    "node-sass": "^4.5.3",
+    "sass": "^1.0.0-beta.1"
+  }
+}

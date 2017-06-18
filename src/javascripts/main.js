@@ -1,0 +1,1 @@
+var partial = require('./partials/partial.js');
