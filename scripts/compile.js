@@ -8,21 +8,27 @@ var browserify = require('browserify');
 fs.removeSync('.build');
 fs.mkdirsSync('.build');
 
-var data = require('../scripts/data.json');
-
 // HTML
-var html = fs.readFileSync('src/templates/index.html', 'utf8');
 var partials = glob.readdirSync('src/templates/**/*.html');
 
-partials.forEach(function (partial) {
+partials.forEach(function(partial) {
     var name = partial.replace('src/templates/', '').split('.')[0];
     var template = fs.readFileSync(partial, 'utf8');
-    console.log(name);
+
     handlebars.registerPartial(name, template);
 });
 
-var template = handlebars.compile(html);
-fs.writeFileSync('.build/index.html', template(data));
+function buildHTMLFile(template, pageData = {}, dest = template) {
+    var html = fs.readFileSync('src/templates/' + template + '.html', 'utf8');
+    var template = handlebars.compile(html);
+    var data = {
+        'global': require('../data/global.json'),
+        'page' : pageData
+    }
+    fs.writeFileSync('.build/' + dest + '.html', template(data));
+}
+
+buildHTMLFile('index');
 
 // CSS
 var css = sass.renderSync({
