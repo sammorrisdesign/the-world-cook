@@ -1,0 +1,26 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+.nav__logo {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.nav__items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav__item {
+    width: 100px;
+    height: 0;
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+}
