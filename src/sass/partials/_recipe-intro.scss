@@ -1,0 +1,34 @@
+.recipe-intro {
+    margin: 24px auto;
+    display: flex;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.recipe-intro__description {
+    max-width: 600px;
+    margin-right: 20px;
+}
+
+.recipe-intro__details {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.recipe-intro__detail {
+    width: 140px;
+    border-bottom: 1px $c-light-grey solid;
+}
+
+.recipe-intro__detail:last-of-type {
+    border-bottom: 0;
+}
+
+.recipe-intro__detail-label {
+    display: block;
+}
+
+.recipe-intro__detail-value {
+    color: $c-grey;
+}

@@ -2,7 +2,7 @@ var watch = require('node-watch');
 var cmd = require('node-cmd');
 var static = require('node-static');
 
-watch('./src/', { recursive: true }, function(evt, file) {
+watch(['./src/', './data/'], { recursive: true }, function(evt, file) {
     console.log('change to ' + file);
     cmd.get('node scripts/compile.js');
 });
