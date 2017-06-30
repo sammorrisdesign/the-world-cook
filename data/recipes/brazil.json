@@ -3,5 +3,62 @@
     "title": "A tasty dish from Rio",
     "description": "There are no little peas in this recipe but these tacos defintely help fuel Chicharito’s goals. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus purus eros, sit amet ornare neque rutrum at. Donec maximus lectus et aliquet volutpat. Cras vitae ullamcorper felis.",
     "time": "30 minutes",
-    "makes": "10 tacos"
+    "makes": "10 tacos",
+    "ingredients": [
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "1tsbp",
+            "imperial": "1tsbp",
+            "ingredient": "Whole peppercorns for your recipe"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Boneless chicken thighs"
+        },
+        {
+            "metric": "1tsbp",
+            "imperial": "1tsbp",
+            "ingredient": "Whole peppercorns for your recipe"
+        }
+    ]
 }

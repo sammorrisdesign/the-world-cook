@@ -1,0 +1,16 @@
+<ul class='recipe-ingredients'>
+    <h2 class='recipe-ingredients__title'>Ingredients</h2>
+    {{#each page.ingredients}}
+        <li class='recipe-ingredients__row'>
+            <div class='recipe-ingredients__amount recipe-ingredients__amount--imperial'>
+                {{ imperial }}
+            </div>
+            <div class='recipe-ingredients__amount recipe-ingredients__amount--metric'>
+                {{ metric }}
+            </div>
+            <div class='recipe-ingredients__ingredient'>
+                {{ ingredient }}
+            </div>
+        </li>
+    {{/each}}
+</ul>

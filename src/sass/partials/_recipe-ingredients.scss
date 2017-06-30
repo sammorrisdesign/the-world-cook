@@ -1,0 +1,35 @@
+.recipe-ingredients {
+    width: 320px;
+    padding: 6px;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: $c-black;
+    color: $c-white;
+    list-style: none;
+}
+
+.recipe-ingredients__title {
+    font-size: 28px;
+    margin: 0 0 12px;
+}
+
+.recipe-ingredients__row {
+    display: flex;
+    font-size: 20px;
+    line-height: 28px;
+    border-bottom: $c-grey solid 1px;
+}
+
+.recipe-ingredients__row:last-of-type {
+    border-bottom: 0;
+}
+
+.recipe-ingredients__amount {
+    width: 90px;
+    margin-right: 10px;
+    flex-shrink: 0;
+
+    &--imperial {
+        display: none;
+    }
+}
