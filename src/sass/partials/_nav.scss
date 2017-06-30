@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: 24px 0;
+    color: $c-white;
 }
 
 .nav__logo {
@@ -23,4 +24,9 @@
     display: inline-block;
     vertical-align: bottom;
     line-height: 0;
+    text-align: right;
+
+    a {
+        color: $c-white;
+    }
 }

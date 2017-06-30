@@ -32,11 +32,11 @@ function buildHTMLFile(template, pageData = {}, dest = template) {
 var recipes = require('../data/recipes.json');
 
 for (var i in recipes) {
+    console.log(require('../data/recipes/' + i + '.json'));
     buildHTMLFile('recipes', require('../data/recipes/' + i + '.json'), 'recipes/' + recipes[i].slug)
 }
 
 buildHTMLFile('index');
-
 
 // CSS
 var css = sass.renderSync({
