@@ -1,0 +1,50 @@
+.recipe-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #b51000;
+}
+
+.recipe-step {
+    height: 100vh;
+
+    .container {
+        display: flex;
+    }
+}
+
+.recipe-step__bar {
+    background-color: #00b500;
+    padding: 24px 0;
+}
+
+.recipe-step__number {
+    position: relative;
+    background-color: $c-black;
+    width: 72px;
+    height: 72px;
+    border-radius: 48px;
+    margin-right: 12px;
+}
+
+.recipe-step__number__digit {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    color: $c-white;
+    font-size: 64px;
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+.recipe-step__instructions {
+    width: 540px;
+    margin-top: -6px;
+    font-size: 20px;
+    line-height: 28px;
+    color: $c-white;
+}

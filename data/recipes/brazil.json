@@ -60,5 +60,13 @@
             "imperial": "1tsbp",
             "ingredient": "Whole peppercorns for your recipe"
         }
+    ],
+    "steps": [
+        {
+            "instructions": "Place the chicken, peppercorns, salt, garlic, bay leaf and onion in a large heavy saucepan with 6 cups of water. Bring to a boil over high heat."
+        },
+        {
+            "instructions": "Place the chicken, peppercorns, salt, garlic, bay leaf and onion in a large heavy saucepan with 6 cups of water. Bring to a boil over high heat."
+        }
     ]
 }

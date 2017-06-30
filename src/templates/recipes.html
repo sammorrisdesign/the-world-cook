@@ -4,4 +4,10 @@
 
 {{> partials/recipe-intro }}
 
+<ul class='recipe-steps'>
+    {{#each page.steps}}
+        {{> partials/recipe-step }}
+    {{/each}}
+</ul>
+
 {{> includes/footer }}
