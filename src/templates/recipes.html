@@ -6,7 +6,7 @@
 
 <ul class='recipe-steps'>
     {{#each page.steps}}
-        {{> partials/recipe-step }}
+        {{> partials/recipe-step country=../page.country }}
     {{/each}}
 </ul>
 

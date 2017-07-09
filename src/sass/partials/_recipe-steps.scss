@@ -7,6 +7,9 @@
 
 .recipe-step {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 
     .container {
         display: flex;
@@ -14,8 +17,11 @@
 }
 
 .recipe-step__bar {
+    position: relative;
+    z-index: 1;
     background-color: #00b500;
     padding: 24px 0;
+    flex-shrink: 0;
 }
 
 .recipe-step__number {
@@ -47,4 +53,18 @@
     font-size: 20px;
     line-height: 28px;
     color: $c-white;
+}
+
+.recipe-step__visual {
+    flex-grow: 2;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.recipe-step__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // doesn't work in IE?!?!
 }
