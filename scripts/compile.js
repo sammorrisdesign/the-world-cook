@@ -45,6 +45,7 @@ buildHTMLFile('index');
 var css = sass.renderSync({
     file: 'src/sass/styles.scss'
 }).css.toString('utf8');
+
 fs.writeFileSync('.build/styles.css', css);
 
 // JS
