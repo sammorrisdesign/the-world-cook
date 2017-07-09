@@ -19,6 +19,10 @@ partials.forEach(function(partial) {
     handlebars.registerPartial(name, template);
 });
 
+handlebars.registerHelper('step', function(index) {
+    return parseInt(index) + 1;
+});
+
 function buildHTMLFile(template, pageData = {}, dest = template) {
     var html = fs.readFileSync('src/templates/' + template + '.html', 'utf8');
     var template = handlebars.compile(html);
@@ -32,7 +36,6 @@ function buildHTMLFile(template, pageData = {}, dest = template) {
 var recipes = require('../data/recipes.json');
 
 for (var i in recipes) {
-    console.log(require('../data/recipes/' + i + '.json'));
     buildHTMLFile('recipes', require('../data/recipes/' + i + '.json'), 'recipes/' + recipes[i].slug)
 }
 
