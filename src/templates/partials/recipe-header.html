@@ -1,8 +1,10 @@
-<div class='recipe-header' style='background-image: url()'>
+<div class='recipe-header' style='background-image: url(/assets/images/{{ handlise page.country }}--header.jpg)'>
     {{> partials/nav }}
     <div class='container recipe-header__content'>
         <div class='recipe-header__country'>
-            <div class='recipe-header__country-flag'></div>
+            <div class='recipe-header__country-flag'>
+                <img class='recipe-header__country-flag-image' src='/assets/images/flags/{{ handlise page.country }}.svg'>
+            </div>
             <h2 class='recipe-header__country-label'>{{ page.country }}</h2>
         </div>
         <h1 class='recipe-header__title'>{{ page.title }}</h1>

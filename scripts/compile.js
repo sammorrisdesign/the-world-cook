@@ -23,6 +23,10 @@ handlebars.registerHelper('step', function(index) {
     return parseInt(index) + 1;
 });
 
+handlebars.registerHelper('handlise', function(string) {
+    return string.toLowerCase().replace(' ', '-');
+})
+
 function buildHTMLFile(template, pageData = {}, dest = template) {
     var html = fs.readFileSync('src/templates/' + template + '.html', 'utf8');
     var template = handlebars.compile(html);

@@ -34,6 +34,12 @@
     margin-right: 9px;
     background-color: $c-white;
     display: inline-block;
+    overflow: hidden;
+}
+
+.recipe-header__country-flag-image {
+    width: 100%;
+    height: 100%;
 }
 
 .recipe-header__country-label {
