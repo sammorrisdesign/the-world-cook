@@ -2,7 +2,6 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: #ffbb00;
 }
 
 .recipe-step {
@@ -19,7 +18,7 @@
 .recipe-step__bar {
     position: relative;
     z-index: 1;
-    background-color: #00b500;
+    background-color: $c-grey;
     padding: 24px 0;
     flex-shrink: 0;
 }
