@@ -1,0 +1,58 @@
+{
+    "country": "Iran",
+    "title": "Fesenjan",
+    "description": "This simple pomegranate and walnut based stew something something something.",
+    "time": "1 hour 30 minutes",
+    "makes": "4 servings",
+    "ingredients": [
+        {
+            "metric": "1",
+            "imperial": "1",
+            "ingredient": "Medium sized diced onion"
+        },
+        {
+            "metric": "450g",
+            "imperial": "1 pound",
+            "ingredient": "Chicken tenders"
+        },
+        {
+            "metric": "125g",
+            "imperial": "4.5oz",
+            "ingredient": "Ground walnuts"
+        },
+        {
+            "metric": "240ml",
+            "imperial": "1 cup",
+            "ingredient": "Pomegranate molasses"
+        },
+        {
+            "metric": "1",
+            "imperial": "1",
+            "ingredient": "Bay leaf"
+        },
+        {
+            "metric": "a handful",
+            "imperial": "a handful",
+            "ingredient": "Pomegranate seeds for garnish"
+        }
+    ],
+    "steps": [
+        {
+            "instructions": "Fry the chicken tenders until they're sealed",
+            "format": "gif"
+        },
+        {
+            "instructions": "Add the onion until turning slightly translucent",
+            "format": "gif"
+        },
+        {
+            "instructions": "Then add the ground walnuts and add 1/4 a cup of water until you have a paste"
+        },
+        {
+            "instructions": "Drizzle the pomegranate molasses over and then mix in. Simmer for 15 minutes"
+        },
+        {
+            "instructions": "Add a bay leaf, cover and cook for an hour. Making sure to check on it and stir every 15 minutes so it doesn't stick to the pan. Serve over rice"
+        }
+    ]
+}

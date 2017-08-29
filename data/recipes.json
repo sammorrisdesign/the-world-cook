@@ -2,5 +2,9 @@
     "brazil": {
         "country": "Brazil",
         "slug": "brazil-is-a-country"
+    },
+    "iran": {
+        "country": "Iran",
+        "slug": "fessenjan"
     }
 }
