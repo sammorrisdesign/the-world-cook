@@ -3,8 +3,32 @@
         "country": "Brazil",
         "slug": "brazil-is-a-country"
     },
+    "russia": {
+        "country": "Russia",
+        "slug": "chicken-kiev"
+    },
     "iran": {
         "country": "Iran",
         "slug": "fessenjan"
+    },
+    "japan": {
+        "country": "Japan",
+        "slug": "Ramen, Tori Age, Chicken Itame"
+    },
+    "mexico": {
+        "country": "Mexico",
+        "slug": "chicken-mole-tacos"
+    },
+    "belgium": {
+        "country": "Belgium",
+        "slug": "carbonnade-flamande"
+    },
+    "Saudi Arabia": {
+        "country": "saudi-arabia",
+        "slug": "chicken-kabsa"
+    },
+    "south-korea": {
+        "country": "South Korea",
+        "slug": "bulgogi-something"
     }
 }
