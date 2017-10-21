@@ -40,7 +40,9 @@ function buildHTMLFile(template, pageData = {}, dest = template) {
 var recipes = require('../data/recipes.json');
 
 for (var i in recipes) {
-    buildHTMLFile('recipes', require('../data/recipes/' + i + '.json'), 'recipes/' + recipes[i].slug)
+    if (fs.existsSync('../data/recipes/' + i + '.json')) {
+        buildHTMLFile('recipes', require('../data/recipes/' + i + '.json'), 'recipes/' + recipes[i].slug)
+    }
 }
 
 buildHTMLFile('index');
