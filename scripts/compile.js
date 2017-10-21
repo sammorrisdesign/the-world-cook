@@ -4,6 +4,8 @@ var sass = require('node-sass');
 var handlebars = require('handlebars');
 var deasync = require('deasync');
 var browserify = require('browserify');
+var getData = require('../scripts/data.js');
+var helpers = require('../scripts/helpers.js');
 
 fs.removeSync('.build');
 fs.mkdirsSync('.build');
@@ -24,28 +26,27 @@ handlebars.registerHelper('step', function(index) {
 });
 
 handlebars.registerHelper('handlise', function(string) {
-    return string.toLowerCase().replace(' ', '-');
+    return helpers.handelise(string);
 })
+
+var data = getData();
 
 function buildHTMLFile(template, pageData = {}, dest = template) {
     var html = fs.readFileSync('src/templates/' + template + '.html', 'utf8');
     var template = handlebars.compile(html);
-    var data = {
-        'global': require('../data/global.json'),
-        'page' : pageData
-    }
-    fs.writeFileSync('.build/' + dest + '.html', template(data));
+
+    fs.writeFileSync('.build/' + dest + '.html', template(pageData));
 }
 
-var recipes = require('../data/recipes.json');
+for (var i in data.recipes) {
+    var countrySlug = helpers.handelise(data.recipes[i].country);
 
-for (var i in recipes) {
-    if (fs.existsSync('../data/recipes/' + i + '.json')) {
-        buildHTMLFile('recipes', require('../data/recipes/' + i + '.json'), 'recipes/' + recipes[i].slug)
+    if (data[countrySlug + 'Ingredients'] && data[countrySlug + 'Steps']) {
+        buildHTMLFile('recipes', { ingredients: data[countrySlug + 'Ingredients'], steps: data[countrySlug + 'Steps']}, 'recipes/' + data.recipes[i].slug)
     }
 }
 
-buildHTMLFile('index');
+buildHTMLFile('index', data);
 
 // CSS
 var css = sass.renderSync({

@@ -5,7 +5,7 @@
 {{> partials/recipe-intro }}
 
 <ul class='recipe-steps'>
-    {{#each page.steps}}
+    {{#each steps }}
         {{> partials/recipe-step country=../page.country }}
     {{/each}}
 </ul>

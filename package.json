@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "dev": "node scripts/compile.js && node scripts/dev.js"
+    "dev": "node scripts/compile.js && node scripts/dev.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "deasync": "^0.1.10",
     "fs-extra": "^3.0.1",
     "glob-fs": "^0.1.6",
+    "google-spreadsheet-to-json": "^1.0.0",
     "handlebars": "^4.0.10",
     "node-cmd": "^3.0.0",
     "node-sass": "^4.5.3",
