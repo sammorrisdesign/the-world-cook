@@ -38,19 +38,9 @@ function buildHTMLFile(template, pageData = {}, dest = template) {
     fs.writeFileSync('.build/' + dest + '.html', template(pageData));
 }
 
-function getPageInformation(country) {
-    for (var i in data.recipes) {
-        if (country === data.recipes[i].country) {
-            return data.recipes[i];
-        }
-    }
-}
-
-for (var i in data.recipes) {
-    var countrySlug = helpers.handelise(data.recipes[i].country);
-
-    if (data[countrySlug + 'Ingredients'] && data[countrySlug + 'Steps']) {
-        buildHTMLFile('recipes', { ingredients: data[countrySlug + 'Ingredients'], steps: data[countrySlug + 'Steps'], page: getPageInformation(data.recipes[i].country), type: 'recipe'}, 'recipes/' + data.recipes[i].slug)
+for (var i in data) {
+    if (data[i].steps) {
+        buildHTMLFile('recipes',  data[i], 'recipes/' + data[i].slug)
     }
 }
 

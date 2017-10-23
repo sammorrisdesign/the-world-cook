@@ -1,9 +1,32 @@
 var fs = require('fs-extra');
 var deasync = require('deasync');
 var gsjson = require('google-spreadsheet-to-json');
+var helpers = require('./helpers.js');
 
 var isDone = false;
 var data = {};
+
+function organiseIntoRecipe(data) {
+    var organisedData = {level: 'recipes'};
+
+    for (var i in data.recipes) {
+        organisedData[helpers.handelise(data.recipes[i].country)] = data.recipes[i];
+    }
+
+    for (var i in organisedData) {
+        organisedData[i].level = 'recipe';
+
+        if (data[i + 'Steps']) {
+            organisedData[i].steps = data[i + 'Steps'];
+        }
+
+        if (data[i + 'Ingredients']) {
+            organisedData[i].ingredients = data[i + 'Ingredients'];
+        }
+    }
+
+    return organisedData;
+}
 
 module.exports = function(options) {
     gsjson({
@@ -17,6 +40,8 @@ module.exports = function(options) {
                 data[worksheetTitle] = result[worksheet][worksheetTitle];
             }
         }
+
+        data = organiseIntoRecipe(data);
 
         isDone = true;
     }).catch(function(err) {
