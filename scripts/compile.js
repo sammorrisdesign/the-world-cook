@@ -50,7 +50,7 @@ for (var i in data.recipes) {
     var countrySlug = helpers.handelise(data.recipes[i].country);
 
     if (data[countrySlug + 'Ingredients'] && data[countrySlug + 'Steps']) {
-        buildHTMLFile('recipes', { ingredients: data[countrySlug + 'Ingredients'], steps: data[countrySlug + 'Steps'], page: getPageInformation(data.recipes[i].country)}, 'recipes/' + data.recipes[i].slug)
+        buildHTMLFile('recipes', { ingredients: data[countrySlug + 'Ingredients'], steps: data[countrySlug + 'Steps'], page: getPageInformation(data.recipes[i].country), type: 'recipe'}, 'recipes/' + data.recipes[i].slug)
     }
 }
 

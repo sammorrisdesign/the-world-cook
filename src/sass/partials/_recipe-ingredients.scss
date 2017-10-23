@@ -1,10 +1,23 @@
 .recipe-ingredients {
     position: absolute;
     z-index: 2;
-    right: 12px;
+    width: 100%;
+
+    &.is-fixed {
+        position: fixed;
+        top: 0;
+    }
+
+    .container {
+        position: relative;
+    }
+}
+
+.recipe-ingredients__box {
+    float: right;
     width: 320px;
     padding: 6px;
-    margin: 0;
+    margin: 12px 0 0 0;
     box-sizing: border-box;
     background-color: $c-black;
     color: $c-white;
