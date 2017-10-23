@@ -1,9 +1,15 @@
 {{> includes/head }}
 
-<h1>I'm an index file</h1>
+<div class='home-header'>
+    {{> partials/nav }}
+</div>
 
-{{#each recipes}}
-    {{ country }}
-{{/each}}
+<div class='container home-recipes'>
+    {{#each recipes}}
+        {{#if slug}}
+            <a href='recipes/{{ slug }}.html'>{{ country }}</a>
+        {{/if}}
+    {{/each}}
+</div>
 
 {{> includes/footer }}
