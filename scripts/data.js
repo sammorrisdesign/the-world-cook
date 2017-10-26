@@ -28,6 +28,22 @@ function organiseIntoRecipe(data) {
     return organisedData;
 }
 
+function matchIngredientsInSteps(data) {
+    for (var i in data) {
+        if (data[i].ingredients) {
+            for (var ing in data[i].ingredients) {
+                var ingredient = data[i].ingredients[ing].ingredient;
+                var pattern = new RegExp(ingredient, 'ig');
+
+                for (var step in data[i].steps) {
+                    data[i].steps[step].instructions = data[i].steps[step].instructions.replace(pattern, '<span class=\'recipe-step__ingredient recipe-step__ingredient--' + ing + '\'>$&</span>');
+                }
+            }
+        }
+    }
+    return data;
+}
+
 module.exports = function(options) {
     gsjson({
         spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
@@ -42,6 +58,7 @@ module.exports = function(options) {
         }
 
         data = organiseIntoRecipe(data);
+        data = matchIngredientsInSteps(data);
 
         isDone = true;
     }).catch(function(err) {
