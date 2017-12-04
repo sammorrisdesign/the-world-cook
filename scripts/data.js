@@ -36,7 +36,9 @@ function matchIngredientsInSteps(data) {
                 var pattern = new RegExp(ingredient, 'ig');
 
                 for (var step in data[i].steps) {
-                    data[i].steps[step].instructions = data[i].steps[step].instructions.replace(pattern, '<span class=\'recipe-step__ingredient recipe-step__ingredient--' + ing + '\'>$&</span>');
+                    if (data[i].steps[step].instructions !== undefined) {
+                        data[i].steps[step].instructions = data[i].steps[step].instructions.replace(pattern, '<span class=\'recipe-step__ingredient recipe-step__ingredient--' + ing + '\' data-ingredient=\'' + ing + '\'>$&</span>');
+                    }
                 }
             }
         }

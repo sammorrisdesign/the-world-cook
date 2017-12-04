@@ -34,6 +34,14 @@
     font-size: 20px;
     line-height: 28px;
     border-bottom: $c-grey solid 1px;
+
+    &.is-used {
+        text-decoration: line-through;
+    }
+
+    &.is-active {
+        font-weight: bold;
+    }
 }
 
 .recipe-ingredients__row:last-of-type {

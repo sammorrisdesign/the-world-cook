@@ -1,3 +1,5 @@
+var ingredients = require('../partials/ingredients');
+
 var activeStep = 0,
     scrollTop = 0;
 
@@ -19,6 +21,7 @@ module.exports = {
     onScroll: function() {
         this.updateScrollTop();
         this.setActiveStep();
+        ingredients.checkOffIngredients(activeStep);
     },
 
     updateScrollTop: function() {
