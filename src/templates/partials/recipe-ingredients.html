@@ -3,7 +3,7 @@
     <ul class='recipe-ingredients__box'>
         <h2 class='recipe-ingredients__title'>Ingredients</h2>
         {{#each ingredients}}
-            <li class='recipe-ingredients__row'>
+            <li class='recipe-ingredients__row recipe-ingredients__row--{{ @index }}'>
                 <div class='recipe-ingredients__amount recipe-ingredients__amount--imperial'>
                     {{ imperial }}
                 </div>
