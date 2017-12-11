@@ -16,6 +16,10 @@ module.exports = {
         $(window).resize(function() {
             this.updateNonFixedIngredientsPosition();
         }.bind(this));
+
+        $('.recipe-ingredients__substitute').click(function(e) {
+            this.substituteIngredient(e.currentTarget);
+        }.bind(this));
     },
 
     updateScrollTop: function() {
@@ -45,5 +49,14 @@ module.exports = {
                 $('.recipe-ingredients__row--' + ingredientId).addClass(className);
             })
         }
+    },
+
+    substituteIngredient: function(target) {
+        var $ingredient = $(target).parent().find('.recipe-ingredients__ingredient-name');
+        var oldIngredient = $ingredient.text();
+        var newIngredient = $(target).attr('data-substitute');
+
+        $ingredient.text(newIngredient);
+        $(target).attr('data-substitute', oldIngredient);
     }
 }

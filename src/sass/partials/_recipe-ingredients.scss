@@ -30,6 +30,7 @@
 }
 
 .recipe-ingredients__row {
+    position: relative;
     display: flex;
     font-size: 20px;
     line-height: 28px;
@@ -55,5 +56,19 @@
 
     &--imperial {
         display: none;
+    }
+}
+
+.recipe-ingredients__substitute {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    transition: transform 0.2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateX(2px);
     }
 }
