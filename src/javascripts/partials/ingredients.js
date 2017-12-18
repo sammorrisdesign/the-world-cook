@@ -46,6 +46,8 @@ module.exports = {
             var className = activeStep > i ? 'is-used' : 'is-active';
             $('.recipe-step--' + i).find('.recipe-step__ingredient').each(function() {
                 var ingredientId = $(this).data('ingredient');
+
+                // this line needs to change
                 $('.recipe-ingredients__row--' + ingredientId).addClass(className);
             })
         }
@@ -58,5 +60,7 @@ module.exports = {
 
         $ingredient.text(newIngredient);
         $(target).attr('data-substitute', oldIngredient);
+
+        // swap ingredients when mentioned in the steps...
     }
 }

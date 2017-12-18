@@ -1,5 +1,5 @@
 module.exports = {
-    handelise: function(string) {
+    handlise: function(string) {
         if (string) {
             return string.toLowerCase().replace(' ', '-').replace('/', '');
         }

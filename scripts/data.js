@@ -1,6 +1,8 @@
 var fs = require('fs-extra');
 var deasync = require('deasync');
 var gsjson = require('google-spreadsheet-to-json');
+var markdown = require('markdown').markdown;
+
 var helpers = require('./helpers.js');
 
 var isDone = false;
@@ -10,7 +12,7 @@ function organiseIntoRecipe(data) {
     var organisedData = {level: 'recipes'};
 
     for (var i in data.recipes) {
-        organisedData[helpers.handelise(data.recipes[i].country)] = data.recipes[i];
+        organisedData[helpers.handlise(data.recipes[i].country)] = data.recipes[i];
     }
 
     for (var i in organisedData) {
@@ -28,21 +30,16 @@ function organiseIntoRecipe(data) {
     return organisedData;
 }
 
-function matchIngredientsInSteps(data) {
+function injectIngredientsIntoSteps(data) {
     for (var i in data) {
-        if (data[i].ingredients) {
-            for (var ing in data[i].ingredients) {
-                var ingredient = data[i].ingredients[ing].ingredient;
-                var pattern = new RegExp(ingredient, 'ig');
-
-                for (var step in data[i].steps) {
-                    if (data[i].steps[step].instructions !== undefined) {
-                        data[i].steps[step].instructions = data[i].steps[step].instructions.replace(pattern, '<span class=\'recipe-step__ingredient recipe-step__ingredient--' + ing + '\' data-ingredient=\'' + ing + '\'>$&</span>');
-                    }
-                }
+        if (data[i].steps) {
+            for (var step in data[i].steps) {
+                data[i].steps[step].instructions = markdown.toHTML(data[i].steps[step].instructions);
+                data[i].steps[step].instructions = data[i].steps[step].instructions.replace('<a href="', '<span class=\'recipe-step__ingredient\' data-ingredient=\'').replace('">', '\'>').replace('</a>', '</span>');
             }
         }
     }
+
     return data;
 }
 
@@ -60,7 +57,7 @@ module.exports = function(options) {
         }
 
         data = organiseIntoRecipe(data);
-        data = matchIngredientsInSteps(data);
+        data = injectIngredientsIntoSteps(data);
 
         isDone = true;
     }).catch(function(err) {

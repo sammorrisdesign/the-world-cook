@@ -26,7 +26,7 @@ handlebars.registerHelper('step', function(index) {
 });
 
 handlebars.registerHelper('handlise', function(string) {
-    return helpers.handelise(string);
+    return helpers.handlise(string);
 })
 
 var data = getData();
