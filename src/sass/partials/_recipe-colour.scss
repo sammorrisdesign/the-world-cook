@@ -6,8 +6,14 @@
             border-color: $c-colour;
         }
 
-        .recipe-step__content:before {
+        .recipe-step__content:before,
+        .recipe-progress {
             background-color: $c-colour;
+        }
+
+        .recipe-ingredients__title,
+        .recipe-step__ingredient {
+            color: $c-colour;
         }
     }
 }

@@ -1,6 +1,6 @@
 var ingredients = require('../partials/ingredients');
 
-var activeStep = 0,
+var activeStep = -1,
     scrollTop = 0;
 
 module.exports = {
@@ -15,6 +15,15 @@ module.exports = {
 
         $(window).resize(function() {
             this.onScroll();
+        }.bind(this));
+
+        $('.recipe-progress').click(function() {
+            activeStep++;
+
+            $('html, body').animate({
+                scrollTop: $('.recipe-step--' + activeStep).offset().top
+            }, 400);
+
         }.bind(this));
     },
 
@@ -32,6 +41,8 @@ module.exports = {
         $('.recipe-step').each(function(i, el) {
             if (scrollTop > $(el).offset().top - $(el).height() / 2) {
                 activeStep = $(el).data('step');
+            } else {
+                return -1;
             }
         }.bind(this));
     }

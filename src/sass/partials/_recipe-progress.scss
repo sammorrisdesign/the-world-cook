@@ -1,0 +1,22 @@
+.recipe-progress {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 3;
+    padding: 12px 0;
+}
+
+.recipe-progress__action {
+    font-size: 28px;
+    margin: 0;
+    color: $c-white;
+}
+
+.recipe-progress__detail {
+    font-size: 20px;
+    margin: 0;
+    color: $c-white;
+    font-weight: normal;
+}
