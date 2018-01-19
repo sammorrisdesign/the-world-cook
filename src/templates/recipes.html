@@ -1,15 +1,17 @@
 {{> includes/head }}
 
-{{> partials/recipe-header }}
+<div class='recipe recipe--{{ colour }}'>
+    {{> partials/recipe-header }}
 
-{{> partials/recipe-ingredients }}
+    {{> partials/recipe-ingredients }}
 
-{{> partials/recipe-intro }}
+    {{> partials/recipe-intro }}
 
-<ul class='recipe-steps container'>
-    {{#each steps }}
-        {{> partials/recipe-step country=../country }}
-    {{/each}}
-</ul>
+    <ul class='recipe-steps container'>
+        {{#each steps }}
+            {{> partials/recipe-step country=../country }}
+        {{/each}}
+    </ul>
 
-{{> includes/footer }}
+    {{> includes/footer }}
+</div>

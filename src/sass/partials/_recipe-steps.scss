@@ -11,6 +11,8 @@
 
     @include mq(tablet) {
         margin-right: 340px;
+        height: auto;
+        margin-bottom: 12px;
     }
 
     .container {
@@ -23,6 +25,7 @@
     z-index: 1;
     background-color: $c-white;
     border: 1px solid $c-grey;
+    border-bottom: none;
     padding: 24px 12px;
     flex-shrink: 0;
     display: flex;
