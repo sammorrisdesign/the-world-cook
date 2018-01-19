@@ -6,6 +6,12 @@
     width: 100%;
     z-index: 3;
     padding: 12px 0;
+    transform: translateY(100%);
+    transition: transform 0.2s ease-in;
+
+    &.is-active {
+        transform: translateY(0%);
+    }
 }
 
 .recipe-progress__action {

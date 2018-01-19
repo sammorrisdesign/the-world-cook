@@ -30,6 +30,7 @@ module.exports = {
     onScroll: function() {
         this.updateScrollTop();
         this.setActiveStep();
+        this.toggleRecipeProgress();
         ingredients.checkOffIngredients(activeStep);
     },
 
@@ -45,5 +46,13 @@ module.exports = {
                 return -1;
             }
         }.bind(this));
+    },
+
+    toggleRecipeProgress: function() {
+        if (activeStep < 0 || activeStep == $('.recipe-step').length) {
+            $('.recipe-progress').removeClass('is-active');
+        } else {
+            $('.recipe-progress').addClass('is-active');
+        }
     }
 }
