@@ -46,8 +46,6 @@ module.exports = {
                 return -1;
             }
         }.bind(this));
-
-        console.log(activeStep);
     },
 
     toggleRecipeProgress: function() {
