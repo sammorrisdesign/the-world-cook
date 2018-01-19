@@ -19,7 +19,8 @@
 
     .card--#{$name} {
         .card__country,
-        .card__content {
+        .card__content,
+        .card__country-flag {
             border-color: $c-colour;
         }
 
