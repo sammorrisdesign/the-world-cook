@@ -6,6 +6,8 @@ var activeStep = -1,
 module.exports = {
     init: function() {
         this.bindings();
+        this.onScroll();
+        this.updateRecipeProgressLabel();
     },
 
     bindings: function() {
@@ -18,10 +20,8 @@ module.exports = {
         }.bind(this));
 
         $('.recipe-progress').click(function() {
-            activeStep++;
-
             $('html, body').animate({
-                scrollTop: $('.recipe-step--' + activeStep).offset().top
+                scrollTop: $('.recipe-step--' + (activeStep + 1)).offset().top
             }, 400);
 
         }.bind(this));
@@ -46,6 +46,8 @@ module.exports = {
                 return -1;
             }
         }.bind(this));
+
+        console.log(activeStep);
     },
 
     toggleRecipeProgress: function() {
@@ -53,6 +55,12 @@ module.exports = {
             $('.recipe-progress').removeClass('is-active');
         } else {
             $('.recipe-progress').addClass('is-active');
+            this.updateRecipeProgressLabel();
         }
+    },
+
+    updateRecipeProgressLabel: function() {
+        var text = $('.recipe-step--' + (activeStep + 1)).data('detail');
+        $('.recipe-progress__detail').text(text);
     }
 }
