@@ -1,4 +1,16 @@
+// Colours
 $c-black: #222;
 $c-grey: #666;
 $c-light-grey: #e8e8e8;
 $c-white: #fff;
+
+// Breakpoints
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);

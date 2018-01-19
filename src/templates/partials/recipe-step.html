@@ -1,11 +1,13 @@
 <li class='recipe-step recipe-step--{{ @index }}' data-step='{{ @index }}'>
-    <div class='recipe-step__bar'>
-        <div class='container'>
-            <div class='recipe-step__number'>
-                <span class='recipe-step__number__digit'>{{ step @index }}</span>
-            </div>
-            <div class='recipe-step__instructions'>{{{ instructions }}}</div>
+    <div class='recipe-step__content'>
+        <div class='recipe-step__number'>
+            <span class='recipe-step__number__digit'>{{ step @index }}</span>
         </div>
+        <div class='recipe-step__instructions'>{{{ instructions }}}</div>
+        <div class='recipe-step__corner recipe-step__corner--top-left'></div>
+        <div class='recipe-step__corner recipe-step__corner--bottom-left'></div>
+        <div class='recipe-step__corner recipe-step__corner--top-right'></div>
+        <div class='recipe-step__corner recipe-step__corner--bottom-right'></div>
     </div>
     <div class='recipe-step__visual'>
         <img class='recipe-step__image' src='/assets/images/{{ handlise country }}--step-{{ step @index }}.{{ format }}'>
