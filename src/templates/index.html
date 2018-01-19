@@ -7,7 +7,7 @@
 <div class='container home-recipes'>
     {{#each @this}}
         {{#if slug}}
-            <a href='recipes/{{ slug }}.html'>{{ country }}</a>
+            {{> partials/card }}
         {{/if}}
     {{/each}}
 </div>

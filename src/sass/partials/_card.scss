@@ -1,0 +1,54 @@
+.card {
+    position: relative;
+    max-width: 300px;
+    margin-bottom: 24px;
+}
+
+.card__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.card__image {
+    width: 100%;
+    display: block;
+    background-color: $c-light-grey;
+    min-height: 160px; // this can be removed when all recipes have images
+}
+
+.card__content {
+    padding: 4px 10px;
+    border: 1px solid $c-black;
+    border-top: none;
+}
+
+.card__country {
+    position: relative;
+    padding: 0px 10px 6px;
+    border-bottom: 1px solid $c-black;
+    margin: 0 -10px;
+}
+
+.card__country-name {
+    font-size: 20px;
+    margin: 0;
+}
+
+.card__country-flag {
+    position: absolute;
+    right: 12px;
+    bottom: -24px;
+}
+
+.card__recipe {
+    font-size: 28px;
+    line-height: 32px;
+    margin: 3px 48px 12px 0;
+}
+
+.card__meta {
+    color: $c-grey;
+}

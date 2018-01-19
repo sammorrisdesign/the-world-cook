@@ -1,0 +1,37 @@
+@mixin colourise($name, $c-colour) {
+    .recipe--#{$name} {
+        .recipe-step__number,
+        .recipe-step__corner,
+        .recipe-step__content {
+            border-color: $c-colour;
+        }
+
+        .recipe-step__content:before,
+        .recipe-progress {
+            background-color: $c-colour;
+        }
+
+        .recipe-ingredients__title,
+        .recipe-step__ingredient {
+            color: $c-colour;
+        }
+    }
+
+    .card--#{$name} {
+        .card__country,
+        .card__content {
+            border-color: $c-colour;
+        }
+
+        .card__country-name {
+            color: $c-colour;
+        }
+    }
+}
+
+@include colourise(red, $c-red);
+@include colourise(green, $c-green);
+@include colourise(yellow, $c-yellow);
+@include colourise(blue, $c-blue);
+@include colourise(light-blue, $c-light-blue);
+@include colourise(gold, $c-gold);
