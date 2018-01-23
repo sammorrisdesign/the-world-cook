@@ -2,6 +2,7 @@
     position: absolute;
     z-index: 2;
     width: 100%;
+    pointer-events: none;
 
     &.is-fixed {
         position: fixed;
@@ -22,6 +23,7 @@
     background-color: $c-black;
     color: $c-white;
     list-style: none;
+    pointer-events: auto;
 }
 
 .recipe-ingredients__title {
