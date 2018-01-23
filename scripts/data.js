@@ -9,7 +9,7 @@ var isDone = false;
 var data = {};
 
 function organiseIntoRecipe(data) {
-    var organisedData = {level: 'recipes'};
+    var organisedData = {};
 
     for (var i in data.recipes) {
         organisedData[helpers.handlise(data.recipes[i].country)] = data.recipes[i];
@@ -45,7 +45,7 @@ function injectIngredientsIntoSteps(data) {
 
 module.exports = function(options) {
     var data = fs.readFileSync('.data/data.json');
-    return JSON.parse(data);
+    // return JSON.parse(data);
 
     gsjson({
         spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
@@ -61,6 +61,7 @@ module.exports = function(options) {
 
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
+        console.log(data);
 
         fs.writeFileSync('.data/data.json', JSON.stringify(data));
 
