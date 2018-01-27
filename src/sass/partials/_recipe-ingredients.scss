@@ -9,6 +9,21 @@
     }
 
     &.is-fixed {
+        @include mq($until: tablet) {
+            .recipe-ingredients__box {
+                padding-top: 49px;
+            }
+
+            .recipe-ingredients__title {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 5;
+                padding: 0 18px;
+            }
+        }
+
         @include mq(tablet) {
             position: fixed;
             top: 0;
@@ -39,6 +54,7 @@
 .recipe-ingredients__title {
     font-size: 28px;
     margin: 0 0 12px;
+    background-color: $c-black;
 }
 
 .recipe-ingredients__row {
