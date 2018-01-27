@@ -12,7 +12,8 @@
         }
 
         .recipe-ingredients__title,
-        .recipe-step__ingredient {
+        .recipe-step__ingredient,
+        .recipe-ingredients__row.is-active {
             color: $c-colour;
         }
     }

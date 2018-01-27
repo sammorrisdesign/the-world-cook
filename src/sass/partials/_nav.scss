@@ -9,6 +9,10 @@
     margin: 0;
     font-size: 28px;
     font-weight: bold;
+
+    a {
+        color: $c-white;
+    }
 }
 
 .nav__items {
