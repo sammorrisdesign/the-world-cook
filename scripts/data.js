@@ -45,7 +45,7 @@ function injectIngredientsIntoSteps(data) {
 
 module.exports = function(options) {
     var data = fs.readFileSync('.data/data.json');
-    // return JSON.parse(data);
+    return JSON.parse(data);
 
     gsjson({
         spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',

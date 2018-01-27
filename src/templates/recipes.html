@@ -3,17 +3,19 @@
 <div class='recipe recipe--{{ colour }}'>
     {{> partials/recipe-header }}
 
-    {{> partials/recipe-ingredients }}
+    <div class='recipe__content'>
+        {{> partials/recipe-intro }}
 
-    {{> partials/recipe-intro }}
+        {{> partials/recipe-ingredients }}
 
-    <ul class='recipe-steps container'>
-        {{#each steps }}
-            {{> partials/recipe-step country=../country }}
-        {{/each}}
-    </ul>
+        <ul class='recipe-steps container'>
+            {{#each steps }}
+                {{> partials/recipe-step country=../country }}
+            {{/each}}
+        </ul>
 
-    {{> partials/recipe-related }}
+        {{> partials/recipe-related }}
+    </div>
 
     {{> partials/recipe-progress }}
 </div>

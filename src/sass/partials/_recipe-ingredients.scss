@@ -1,12 +1,18 @@
 .recipe-ingredients {
-    position: absolute;
     z-index: 2;
     width: 100%;
-    pointer-events: none;
+
+    @include mq(tablet) {
+        position: absolute;
+        top: 0;
+        pointer-events: none;
+    }
 
     &.is-fixed {
-        position: fixed;
-        top: 0;
+        @include mq(tablet) {
+            position: fixed;
+            top: 0;
+        }
     }
 
     .container {
@@ -15,15 +21,19 @@
 }
 
 .recipe-ingredients__box {
-    float: right;
-    width: 320px;
     padding: 6px;
-    margin: 12px 0 0 0;
+    margin: 12px 0;
     box-sizing: border-box;
     background-color: $c-black;
     color: $c-white;
     list-style: none;
     pointer-events: auto;
+
+    @include mq(tablet) {
+        float: right;
+        width: 320px;
+        margin: 12px 0 0 0;
+    }
 }
 
 .recipe-ingredients__title {
