@@ -39,13 +39,14 @@ module.exports = {
     },
 
     setActiveStep: function() {
+        var step = -1;
         $('.recipe-step').each(function(i, el) {
             if (scrollTop > $(el).offset().top - $(el).height() / 2) {
-                activeStep = $(el).data('step');
-            } else {
-                return -1;
+                step = $(el).data('step');
             }
         }.bind(this));
+
+        activeStep = step;
     },
 
     toggleRecipeProgress: function() {

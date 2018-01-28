@@ -35,7 +35,7 @@ function injectIngredientsIntoSteps(data) {
         if (data[i].steps) {
             for (var step in data[i].steps) {
                 data[i].steps[step].instructions = markdown.toHTML(data[i].steps[step].instructions);
-                data[i].steps[step].instructions = data[i].steps[step].instructions.replace('<a href="', '<span class=\'recipe-step__ingredient\' data-ingredient=\'').replace('">', '\'>').replace('</a>', '</span>');
+                data[i].steps[step].instructions = data[i].steps[step].instructions.replace(/<a href="/g, '<span class=\'recipe-step__ingredient\' data-ingredient=\'').replace(/">/g, '\'>').replace(/<\/a>/g, '</span>');
             }
         }
     }
@@ -44,8 +44,10 @@ function injectIngredientsIntoSteps(data) {
 }
 
 module.exports = function(options) {
+/*
     var data = fs.readFileSync('.data/data.json');
     return JSON.parse(data);
+*/
 
     gsjson({
         spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
@@ -61,7 +63,6 @@ module.exports = function(options) {
 
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
-        console.log(data);
 
         fs.writeFileSync('.data/data.json', JSON.stringify(data));
 

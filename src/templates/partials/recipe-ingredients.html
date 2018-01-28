@@ -11,7 +11,7 @@
                     {{ metric }}
                 </div>
                 <div class='recipe-ingredients__ingredient'>
-                    <span class='recipe-ingredients__ingredient-name'>{{ ingredient }}</span>
+                    <span class='recipe-ingredients__ingredient-name'>{{ ingredient }} <em>{{ prepared }}</em></span>
                     {{#if substitute}}
                         <img class='recipe-ingredients__substitute' src='/assets/icons/substitute.svg' title='Substitute ingredient' data-substitute='{{ substitute }}' />
                     {{/if}}

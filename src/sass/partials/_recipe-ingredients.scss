@@ -63,10 +63,35 @@
     font-size: 20px;
     line-height: 28px;
     border-top: $c-grey solid 1px;
+    transition: color 0.4s ease-in;
+
+    span {
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 1px;
+            width: 100%;
+            left: 0;
+            right: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            background-color: $c-grey;
+            transition: transform 0.25s ease-in;
+        }
+    }
 
     &.is-used {
-        text-decoration: line-through;
         color: $c-grey;
+
+        span:before {
+            transform: scaleX(1);
+        }
     }
 }
 
