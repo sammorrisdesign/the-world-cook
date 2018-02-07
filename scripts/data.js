@@ -43,6 +43,27 @@ function injectIngredientsIntoSteps(data) {
     return data;
 }
 
+function prettifyAmount(string) {
+    if (string == '' || string == undefined) { return string; }
+    string = string.toString();
+    string = string.replace('1/2', '&frac12;');
+    string = string.replace('1/4', '&frac14;');
+    return string;
+}
+
+function cleanIngredientAmounts(data) {
+    for (var i in data) {
+        if (data[i].ingredients) {
+            for (ingredient in data[i].ingredients) {
+                data[i].ingredients[ingredient].metric = prettifyAmount(data[i].ingredients[ingredient].metric);
+                data[i].ingredients[ingredient].imperial = prettifyAmount(data[i].ingredients[ingredient].imperial);
+            }
+        }
+    }
+
+    return data;
+}
+
 module.exports = function(options) {
 /*
     var data = fs.readFileSync('.data/data.json');
@@ -63,6 +84,7 @@ module.exports = function(options) {
 
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
+        data = cleanIngredientAmounts(data);
 
         fs.writeFileSync('.data/data.json', JSON.stringify(data));
 
