@@ -43,6 +43,16 @@ function injectIngredientsIntoSteps(data) {
     return data;
 }
 
+function convertDescriptionsToHTML(data) {
+    for (var i in data) {
+        if (data[i].description) {
+            data[i].description = markdown.toHTML(data[i].description);
+        }
+    }
+
+    return data;
+}
+
 function prettifyAmount(string) {
     if (string == '' || string == undefined) { return string; }
     string = string.toString();
@@ -84,6 +94,7 @@ module.exports = function(options) {
 
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
+        data = convertDescriptionsToHTML(data);
         data = cleanIngredientAmounts(data);
 
         fs.writeFileSync('.data/data.json', JSON.stringify(data));
