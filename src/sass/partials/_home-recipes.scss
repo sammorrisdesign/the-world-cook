@@ -1,0 +1,15 @@
+.home-recipes {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+
+    .card {
+        width: calc(25% - 15px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card__content {
+        flex-grow: 1;
+    }
+}
