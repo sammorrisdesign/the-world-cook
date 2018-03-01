@@ -9,10 +9,13 @@ module.exports = {
     init: function() {
         this.bindings();
         this.setTotalSteps();
-        this.onScroll();
+        this.updateScrollTop();
+        this.setActiveStep();
+        this.toggleRecipeProgress();
         ingredients.updateNonFixedIngredientsPosition(scrollTop);
         ingredients.setHeight();
         ingredients.checkIngredientsPosition(scrollTop, activeStep, totalSteps);
+        ingredients.checkOffIngredients(activeStep);
     },
 
     bindings: function() {
@@ -23,6 +26,10 @@ module.exports = {
         $(window).resize(function() {
             ingredients.reset(scrollTop, activeStep, totalSteps);
             this.onScroll();
+        }.bind(this));
+
+        $(window).ready(function() {
+            ingredients.reset(scrollTop, activeStep, totalSteps);
         }.bind(this));
 
         $('.recipe-progress').click(function() {

@@ -38,7 +38,7 @@
 .card__image {
     width: 100%;
     display: block;
-    background-color: $c-light-grey;
+    background-color: rgba(0, 0, 0, 0.2);
     min-height: 160px; // this can be removed when all recipes have images
 }
 

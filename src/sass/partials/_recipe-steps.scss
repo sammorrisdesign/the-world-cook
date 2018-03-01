@@ -114,9 +114,14 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
+    padding-top: 56.25%;
+    background-color: $c-light-grey;
 }
 
 .recipe-step__image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     display: block;
 }
