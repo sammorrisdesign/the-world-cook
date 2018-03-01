@@ -39,7 +39,6 @@ function buildHTMLFile(template, pageData = {}, dest = template) {
 }
 
 for (var i in data) {
-    console.log(i);
     if (data[i].steps) {
         buildHTMLFile('recipes',  data[i], 'recipes/' + data[i].slug)
     }
