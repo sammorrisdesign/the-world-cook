@@ -4,7 +4,6 @@ var sass = require('node-sass');
 var handlebars = require('handlebars');
 var deasync = require('deasync');
 var browserify = require('browserify');
-var getData = require('../scripts/data.js');
 var helpers = require('../scripts/helpers.js');
 
 fs.removeSync('.build');
@@ -29,7 +28,12 @@ handlebars.registerHelper('handlise', function(string) {
     return helpers.handlise(string);
 })
 
-var data = getData();
+handlebars.registerHelper('json', function(context) {
+    return JSON.stringify(context);
+});
+
+var data = fs.readFileSync('.data/data.json');
+    data = JSON.parse(data);
 
 function buildHTMLFile(template, pageData = {}, dest = template) {
     var html = fs.readFileSync('src/templates/' + template + '.html', 'utf8');

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node scripts/compile.js && node scripts/dev.js"
+    "start": "node scripts/compile.js && node scripts/dev.js",
+    "update": "node scripts/data.js"
   },
   "repository": {
     "type": "git",
