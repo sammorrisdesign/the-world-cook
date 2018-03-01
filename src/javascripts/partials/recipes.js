@@ -10,6 +10,7 @@ module.exports = {
         this.bindings();
         this.setTotalSteps();
         this.onScroll();
+        ingredients.updateNonFixedIngredientsPosition(scrollTop);
     },
 
     bindings: function() {
@@ -19,6 +20,7 @@ module.exports = {
 
         $(window).resize(function() {
             this.onScroll();
+            ingredients.updateNonFixedIngredientsPosition(scrollTop);
         }.bind(this));
 
         $('.recipe-progress').click(function() {
@@ -36,6 +38,7 @@ module.exports = {
         this.updateScrollTop();
         this.setActiveStep();
         this.toggleRecipeProgress();
+        ingredients.checkIngredientsPosition(scrollTop);
         ingredients.checkOffIngredients(activeStep);
     },
 
