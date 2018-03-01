@@ -1,13 +1,15 @@
 var ingredients = require('../partials/ingredients');
+var steps = require('../partials/steps');
 
 var activeStep = -1,
+    totalSteps = 0,
     scrollTop = 0;
 
 module.exports = {
     init: function() {
         this.bindings();
+        this.setTotalSteps();
         this.onScroll();
-        this.updateRecipeProgressLabel();
     },
 
     bindings: function() {
@@ -23,8 +25,11 @@ module.exports = {
             $('html, body').animate({
                 scrollTop: $('.recipe-step--' + (activeStep + 1)).offset().top
             }, 400);
-
         }.bind(this));
+    },
+
+    setTotalSteps: function() {
+        totalSteps = $('.recipe-step').length;
     },
 
     onScroll: function() {
@@ -43,6 +48,13 @@ module.exports = {
         $('.recipe-step').each(function(i, el) {
             if (scrollTop > $(el).offset().top - $(el).height() / 2) {
                 step = $(el).data('step');
+
+                // check on last step if user has scrolled past the last step
+                if (step === (totalSteps - 1)) {
+                    if (scrollTop > $(el).offset().top + $(el).height() / 2 ) {
+                        step++;
+                    }
+                }
             }
         }.bind(this));
 
@@ -54,12 +66,7 @@ module.exports = {
             $('.recipe-progress').removeClass('is-active');
         } else {
             $('.recipe-progress').addClass('is-active');
-            this.updateRecipeProgressLabel();
+            steps.updateRecipeProgressLabel(activeStep);
         }
-    },
-
-    updateRecipeProgressLabel: function() {
-        var text = $('.recipe-step--' + (activeStep + 1)).data('detail');
-        $('.recipe-progress__detail').text(text);
     }
 }

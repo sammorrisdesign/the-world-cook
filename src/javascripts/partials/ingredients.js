@@ -1,4 +1,4 @@
-var scrollTop, ingredientsPosition, isFixed = true;
+var scrollTop, ingredientsPosition;
 
 module.exports = {
     init: function() {
