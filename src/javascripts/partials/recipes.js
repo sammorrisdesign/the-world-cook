@@ -38,7 +38,7 @@ module.exports = {
         this.updateScrollTop();
         this.setActiveStep();
         this.toggleRecipeProgress();
-        ingredients.checkIngredientsPosition(scrollTop);
+        ingredients.checkIngredientsPosition(scrollTop, activeStep, totalSteps);
         ingredients.checkOffIngredients(activeStep);
     },
 
@@ -65,7 +65,7 @@ module.exports = {
     },
 
     toggleRecipeProgress: function() {
-        if (activeStep < 0 || activeStep == $('.recipe-step').length) {
+        if (activeStep < 0 || activeStep == totalSteps) {
             $('.recipe-progress').removeClass('is-active');
         } else {
             $('.recipe-progress').addClass('is-active');

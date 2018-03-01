@@ -30,6 +30,22 @@
         }
     }
 
+    &.is-ended--mobile {
+        @include mq($until: tablet) {
+            .recipe-ingredients__title {
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+    &.is-ended {
+        @include mq(tablet) {
+            position: absolute;
+            bottom: 0;
+            top: auto;
+        }
+    }
+
     .container {
         position: relative;
     }
@@ -55,6 +71,7 @@
     font-size: 28px;
     margin: 0 0 12px;
     background-color: $c-black;
+    transition: transform 0.2s ease-in;
 }
 
 .recipe-ingredients__row {

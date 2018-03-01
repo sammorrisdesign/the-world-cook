@@ -1,4 +1,6 @@
-var ingredientsPosition;
+var ingredientsPosition,
+    ingredientsHeight,
+    stepsEndPoint;
 
 module.exports = {
     init: function() {
@@ -13,11 +15,26 @@ module.exports = {
 
     updateNonFixedIngredientsPosition: function(scrollTop) {
         ingredientsPosition = $('.recipe-ingredients').offset().top;
+        ingredientsHeight = $('.recipe-ingredients').height();
+        stepsEndPoint = $('.recipe-steps').offset().top + $('.recipe-steps').height();
     },
 
-    checkIngredientsPosition: function(scrollTop) {
+    checkIngredientsPosition: function(scrollTop, activeStep, totalSteps) {
         if (scrollTop > ingredientsPosition) {
+            if (scrollTop > stepsEndPoint - ingredientsHeight) {
+                $('.recipe-ingredients').addClass('is-ended');
+            } else {
+                $('.recipe-ingredients').removeClass('is-ended');
+            }
+
+            if (activeStep === totalSteps) {
+                $('.recipe-ingredients').addClass('is-ended--mobile');
+            } else {
+                $('.recipe-ingredients').removeClass('is-ended--mobile');
+            }
+
             $('.recipe-ingredients').addClass('is-fixed');
+
         } else {
             $('.recipe-ingredients').removeClass('is-fixed');
         }
