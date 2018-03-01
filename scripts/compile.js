@@ -49,6 +49,7 @@ for (var i in data) {
 }
 
 buildHTMLFile('index', data);
+buildHTMLFile('about', data);
 
 // CSS
 var css = sass.renderSync({
