@@ -3,15 +3,10 @@
 }
 
 .recipe-step {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
     margin-bottom: 12px;
 
     @include mq(tablet) {
         margin-right: 340px;
-        height: auto;
     }
 
     .container {
@@ -122,14 +117,6 @@
 }
 
 .recipe-step__image {
-    position: absolute;
     width: 100%;
-    height: 100%;
-    object-fit: cover; // doesn't work in IE?!?!
-    background-color: $c-light-grey;
-
-    @include mq(tablet) {
-        position: relative;
-        min-height: 300px;
-    }
+    display: block;
 }

@@ -6,6 +6,7 @@
         position: absolute;
         top: 0;
         pointer-events: none;
+        margin-top: -12px;
     }
 
     &.is-fixed {
@@ -27,6 +28,10 @@
         @include mq(tablet) {
             position: fixed;
             top: 0;
+
+            .recipe-ingredients__box {
+                margin-top: 24px;
+            }
         }
     }
 
@@ -68,11 +73,16 @@
             position: absolute;
             bottom: 0;
             top: auto;
+
+            .recipe-ingredients__box {
+                margin-top: 12px;
+            }
         }
     }
 
     .container {
         position: relative;
+        overflow: auto;
     }
 }
 

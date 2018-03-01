@@ -29,12 +29,19 @@ module.exports = {
 
     updateNonFixedIngredientsPosition: function(scrollTop) {
         ingredientsPosition = $('.recipe-ingredients').offset().top;
-        ingredientsHeight = $('.recipe-ingredients').height();
+        ingredientsHeight = $('.recipe-ingredients').css('height','auto').height();
         stepsEndPoint = $('.recipe-steps').offset().top + $('.recipe-steps').height();
     },
 
     setHeight: function() {
         $('.recipe-ingredients').height(ingredientsHeight);
+    },
+
+    reset: function(scrollTop, activeStep, totalSteps) {
+        $('.recipe-ingredients').removeClass('is-expandable is-ended is-ended--mobile is-fixed is-expanded');
+        this.updateNonFixedIngredientsPosition(scrollTop);
+        this.setHeight();
+        this.checkIngredientsPosition(scrollTop, activeStep, totalSteps);
     },
 
     checkIngredientsPosition: function(scrollTop, activeStep, totalSteps) {
