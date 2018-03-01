@@ -1,12 +1,12 @@
 .home-header {
-    .nav {
-        color: $c-black;
-    }
+    background-color: $c-grey;
+    margin-bottom: 20px;
+}
 
-    .nav__item {
-        a {
-            color: $c-black;
-        }
-    }
-
+.home-header__copy {
+    margin: 0;
+    padding: 82px 0 120px 0;
+    color: $c-white;
+    font-size: 72px;
+    line-height: 1;
 }
