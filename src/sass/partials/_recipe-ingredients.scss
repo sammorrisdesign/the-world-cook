@@ -30,6 +30,31 @@
         }
     }
 
+    &.is-fixed.is-expandable {
+        @include mq($until:tablet) {
+            .recipe-ingredients__rows {
+                position: fixed;
+                top: 0;
+                z-index: 2;
+                width: 100%;
+                left: 0;
+                background-color: $c-black;
+                padding: 49px 20px 10px;
+                box-sizing: border-box;
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+    &.is-fixed.is-expanded {
+        @include mq($until: tablet) {
+            .recipe-ingredients__rows {
+                transition: transform 0.2s ease-in;
+                transform: translateY(0%);
+            }
+        }
+    }
+
     &.is-ended--mobile {
         @include mq($until: tablet) {
             .recipe-ingredients__title {
@@ -57,7 +82,6 @@
     box-sizing: border-box;
     background-color: $c-black;
     color: $c-white;
-    list-style: none;
     pointer-events: auto;
 
     @include mq(tablet) {
@@ -72,6 +96,12 @@
     margin: 0 0 12px;
     background-color: $c-black;
     transition: transform 0.2s ease-in;
+}
+
+.recipe-ingredients__rows {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .recipe-ingredients__row {

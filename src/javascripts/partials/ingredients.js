@@ -11,6 +11,20 @@ module.exports = {
         $('.recipe-ingredients__substitute').click(function(e) {
             this.substituteIngredient(e.currentTarget);
         }.bind(this));
+
+        $('.recipe-ingredients__title').click(function() {
+            this.toggleIngredients();
+        }.bind(this));
+    },
+
+    toggleIngredients: function() {
+        if ($('.recipe-ingredients').hasClass('is-expandable')) {
+            if ($('.recipe-ingredients').hasClass('is-expanded')) {
+                $('.recipe-ingredients').removeClass('is-expanded');
+            } else {
+                $('.recipe-ingredients').addClass('is-expanded');
+            }
+        }
     },
 
     updateNonFixedIngredientsPosition: function(scrollTop) {
@@ -19,8 +33,18 @@ module.exports = {
         stepsEndPoint = $('.recipe-steps').offset().top + $('.recipe-steps').height();
     },
 
+    setHeight: function() {
+        $('.recipe-ingredients').height(ingredientsHeight);
+    },
+
     checkIngredientsPosition: function(scrollTop, activeStep, totalSteps) {
         if (scrollTop > ingredientsPosition) {
+            if (scrollTop > ingredientsPosition + ingredientsHeight) {
+                $('.recipe-ingredients').addClass('is-expandable');
+            } else {
+                $('.recipe-ingredients').removeClass('is-expandable');
+            }
+
             if (scrollTop > stepsEndPoint - ingredientsHeight) {
                 $('.recipe-ingredients').addClass('is-ended');
             } else {
@@ -28,7 +52,7 @@ module.exports = {
             }
 
             if (activeStep === totalSteps) {
-                $('.recipe-ingredients').addClass('is-ended--mobile');
+                $('.recipe-ingredients').addClass('is-ended--mobile').removeClass('is-expanded');
             } else {
                 $('.recipe-ingredients').removeClass('is-ended--mobile');
             }

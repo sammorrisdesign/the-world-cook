@@ -11,6 +11,7 @@ module.exports = {
         this.setTotalSteps();
         this.onScroll();
         ingredients.updateNonFixedIngredientsPosition(scrollTop);
+        ingredients.setHeight();
     },
 
     bindings: function() {
@@ -20,6 +21,7 @@ module.exports = {
 
         $(window).resize(function() {
             this.onScroll();
+            ingredients.setHeight();
             ingredients.updateNonFixedIngredientsPosition(scrollTop);
         }.bind(this));
 
