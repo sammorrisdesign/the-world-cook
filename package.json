@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node scripts/compile.js && node scripts/dev.js",
-    "update": "node scripts/data.js"
+    "update": "node scripts/data.js",
+    "postupdate": "node scripts/compile.js"
   },
   "repository": {
     "type": "git",

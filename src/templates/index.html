@@ -5,9 +5,11 @@
 </div>
 
 <div class='container home-recipes'>
-    {{#each @this}}
-        {{> partials/card }}
-    {{/each}}
+    <div class='cards'>
+        {{#each @this}}
+            {{> partials/card }}
+        {{/each}}
+    </div>
 </div>
 
 {{> includes/footer }}

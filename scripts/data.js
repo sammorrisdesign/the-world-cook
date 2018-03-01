@@ -74,40 +74,59 @@ function cleanIngredientAmounts(data) {
     return data;
 }
 
-module.exports = function(options) {
-/*
-    var data = fs.readFileSync('.data/data.json');
-    return JSON.parse(data);
-*/
+function createRelated(data) {
+    for (var i in data) {
+        var thisGroup = data[i].group;
+        data[i].related = [];
 
-    gsjson({
-        spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
-        allWorksheets: true,
-        credentials: require('../keys.json')
-    }).then(function(result) {
-        // organise response in a useable way
-        for (var worksheet in result) {
-            for (var worksheetTitle in result[worksheet]) {
-                data[worksheetTitle] = result[worksheet][worksheetTitle];
+        for (var sub in data) {
+            if (thisGroup == data[sub].group) {
+                var related = data[sub];
+
+                data[i].related.push({
+                    colour: related.colour,
+                    recipe: related.recipe,
+                    time: related.time,
+                    slug: related.slug,
+                    country: related.country
+                });
             }
         }
-
-        data = organiseIntoRecipe(data);
-        data = injectIngredientsIntoSteps(data);
-        data = convertDescriptionsToHTML(data);
-        data = cleanIngredientAmounts(data);
-
-        fs.writeFileSync('.data/data.json', JSON.stringify(data));
-
-        isDone = true;
-    }).catch(function(err) {
-        console.log(err.message);
-        console.log(err.stack);
-    });
-
-    deasync.loopWhile(function() {
-        return !isDone;
-    });
+    }
 
     return data;
 }
+
+gsjson({
+    spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
+    allWorksheets: true,
+    credentials: require('../keys.json')
+}).then(function(result) {
+    // organise response in a useable way
+    for (var worksheet in result) {
+        for (var worksheetTitle in result[worksheet]) {
+            data[worksheetTitle] = result[worksheet][worksheetTitle];
+        }
+    }
+
+    data = organiseIntoRecipe(data);
+    data = injectIngredientsIntoSteps(data);
+    data = convertDescriptionsToHTML(data);
+    data = cleanIngredientAmounts(data);
+    data = createRelated(data);
+
+    fs.writeFileSync('.data/data.json', JSON.stringify(data));
+
+    console.log('data updated');
+
+    isDone = true;
+}).catch(function(err) {
+    console.log(err.message);
+    console.log(err.stack);
+});
+
+deasync.loopWhile(function() {
+    return !isDone;
+});
+
+return data;

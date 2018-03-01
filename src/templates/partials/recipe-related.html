@@ -1,8 +1,10 @@
 <div class='recipe-related'>
     <div class='container'>
-        <h2 class='recipe-related__title'>Related Recipes</h2>
-        {{#each @this}}
-            {{> partials/card }}
-        {{/each}}
+        <h2 class='recipe-related__title'>More recipes from Group {{ group }}</h2>
+        <div class='cards'>
+            {{#each related }}
+                {{> partials/card }}
+            {{/each}}
+        </div>
     </div>
 </div>

@@ -1,7 +1,25 @@
+.cards {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .card {
+        width: calc(25% - 15px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card__content {
+        flex-grow: 1;
+    }
+}
+
 .card {
     position: relative;
     max-width: 300px;
     margin-bottom: 24px;
+    background-color: $c-white;
 }
 
 .card__link {
