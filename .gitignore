@@ -1,5 +1,6 @@
 .build
 .data
+.images
 node_modules/
 keys.json
 
