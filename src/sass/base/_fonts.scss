@@ -1,14 +1,25 @@
 @font-face {
     font-family: 'Regular';
-    src: url('assets/fonts/Regular-Semibold.woff'),
+    src: url('assets/fonts/Regular-Semibold.woff2'),
+         url('assets/fonts/Regular-Semibold.woff'),
          url('assets/fonts/Regular-Semibold.eot'),
-         url('assets/fonts/Regular-Semibold.ttf');
+         url('assets/fonts/Regular-Semibold.svg');
+}
+
+@font-face {
+    font-family: 'Regular';
+    font-style: italic;
+    src: url('assets/fonts/Regular-SemiboldItalic.woff2'),
+         url('assets/fonts/Regular-SemiboldItalic.woff'),
+         url('assets/fonts/Regular-SemiboldItalic.eot'),
+         url('assets/fonts/Regular-SemiboldItalic.svg');
 }
 
 @font-face {
     font-family: 'Regular';
     font-weight: bold;
-    src: url('assets/fonts/Regular-Extrabold.woff'),
+    src: url('assets/fonts/Regular-Extrabold.woff2'),
+         url('assets/fonts/Regular-Extrabold.woff'),
          url('assets/fonts/Regular-Extrabold.eot'),
-         url('assets/fonts/Regular-Extrabold.tff');
+         url('assets/fonts/Regular-Extrabold.svg');
 }
