@@ -75,3 +75,4 @@ deasync.loopWhile(function() {
 });
 
 fs.copySync('src/assets/', '.build/assets/');
+fs.copySync('.images', '.build/assets/images/recipes/');

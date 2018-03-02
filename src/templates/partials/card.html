@@ -1,6 +1,9 @@
 <div class='card card--{{ colour }}'>
     <a class='card__link' href='recipes/{{ slug }}.html'></a>
-    <img class='card__image' src='/assets/images/recipes/{{ handlise country }}/header.jpg'>
+    <picture>
+        <source media="(-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)" sizes="260px" srcset="/assets/images/recipes/{{ handlise country }}/header--520.jpg 520w">
+        <img class='card__image' src='/assets/images/recipes/{{ handlise country }}/header--260.jpg'>
+    </picture>
     <div class='card__content'>
         <div class='card__country'>
             <h3 class='card__country-name'>{{ country }}</h3>

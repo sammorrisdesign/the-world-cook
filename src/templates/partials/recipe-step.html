@@ -16,6 +16,11 @@
                 <strong>Coach's tip</strong> {{ tip }}
             </div>
         {{/if}}
-        <img class='recipe-step__image' src='/assets/images/recipes/{{ handlise country }}/{{ step @index }}.jpg'>
+        <picture>
+            <source media="(min-width: 720px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 720px) and (min-resolution: 120dpi)" sizes="760px" srcset="/assets/images/recipes/{{ handlise country }}/{{ step @index }}--1520.jpg 1520w">
+            <source media="(min-width: 720px)" sizes="760px" srcset="/assets/images/recipes/{{ handlise country }}/{{ step @index }}--760.jpg 760w">
+            <source media="(-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)" sizes="420px" srcset="/assets/images/recipes/{{ handlise country }}/{{ step @index }}--840.jpg 840w">
+            <img class='recipe-step__image' src='/assets/images/recipes/{{ handlise country }}/{{ step @index }}--420.jpg'>
+        </picture>
     </div>
 </li>

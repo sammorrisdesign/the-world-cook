@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node scripts/compile.js && node scripts/dev.js",
     "update": "node scripts/data.js",
-    "postupdate": "node scripts/compile.js"
+    "postupdate": "node scripts/compile.js",
+    "images": "node scripts/images.js"
   },
   "repository": {
     "type": "git",
