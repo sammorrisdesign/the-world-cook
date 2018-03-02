@@ -12,7 +12,10 @@
             <div class='recipe-header__country-flag flag'>
                 <img class='recipe-header__country-flag-image flag__image' src='/assets/images/flags/{{ handlise country }}.svg'>
             </div>
-            <h2 class='recipe-header__country-label'>{{ country }}</h2>
+            <div class='recipe-header__country-content'>
+                <h2 class='recipe-header__country-label'>{{ country }}</h2>
+                <h2 class='recipe-header__country-meta'>Group {{ group }} <span class='recipe-header__divider'>|</span> {{ region }}</h2>
+            </div>
         </div>
         <h1 class='recipe-header__title'>{{ recipe }}</h1>
     </div>
