@@ -1,14 +1,30 @@
 .recipe-intro {
     position: relative;
-    margin: 24px auto;
-    display: flex;
+    margin: 24px auto 0;
     font-size: 20px;
     line-height: 28px;
+
+    @include mq(tablet) {
+        margin-bottom: 24px;
+    }
+}
+
+.recipe-intro__inner {
+    @include mq(tablet) {
+        padding-right: 340px;
+    }
+
+    @include mq(desktop) {
+        display: flex;
+    }
 }
 
 .recipe-intro__description {
-    width: 600px;
-    margin-right: 20px;
+    max-width: 600px;
+
+    @include mq(desktop) {
+        margin-right: 20px;
+    }
 
     p {
         margin-top: 0;
