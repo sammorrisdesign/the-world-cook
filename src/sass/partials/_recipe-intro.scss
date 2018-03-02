@@ -1,11 +1,11 @@
 .recipe-intro {
     position: relative;
-    margin: 24px auto 0;
+    margin: 20px auto 10px;
     font-size: 20px;
     line-height: 28px;
 
     @include mq(tablet) {
-        margin-bottom: 24px;
+        margin-bottom: 20px;
     }
 }
 
