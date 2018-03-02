@@ -5,9 +5,13 @@
     margin-bottom: 24px;
 
     .card {
-        width: calc(25% - 15px);
+        width: calc(50% - 10px);
         display: flex;
         flex-direction: column;
+
+        @include mq(tablet) {
+            width: calc(25% - 15px);
+        }
     }
 
     .card__content {
@@ -17,7 +21,6 @@
 
 .card {
     position: relative;
-    max-width: 300px;
     margin-bottom: 24px;
     background-color: $c-white;
 }
@@ -28,6 +31,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 2;
 
     &:hover {
         text-decoration: none;
@@ -35,15 +39,25 @@
     }
 }
 
+.card__visual {
+    position: relative;
+    padding-top: 56.25%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 .card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     display: block;
-    background-color: rgba(0, 0, 0, 0.2);
-    min-height: 160px; // this can be removed when all recipes have images
 }
 
 .card__content {
-    padding: 4px 10px;
+    position: relative;
+    padding: 4px 10px 40px;
     border: 1px solid $c-black;
     border-top: none;
 }
@@ -74,5 +88,8 @@
 }
 
 .card__meta {
+    position: absolute;
+    bottom: 6px;
+    left: 10px;
     color: $c-grey;
 }
