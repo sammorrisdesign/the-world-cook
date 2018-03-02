@@ -1,9 +1,12 @@
 .recipe-header {
     position: relative;
-    height: 0;
-    padding-top: 56.25%;
     color: $c-white;
     background-color: $c-light-grey;
+    padding-top: 56.25%;
+
+    @include mq(tablet) {
+        height: 0;
+    }
 
     .nav {
         position: absolute;
@@ -15,30 +18,42 @@
 }
 
 .recipe-header__image {
+    width: 100%;
+    display: block;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
 }
 
 .recipe-header__content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     z-index: 2;
+    overflow: auto;
+
+    @include mq(tablet) {
+        background-color: transparent !important; // to override custom colours
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
 .recipe-header__country {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
+    margin-top: 20px;
 }
 
 .recipe-header__country-flag {
     margin-right: 9px;
+    border: 1px solid $c-white;
+
+    @include mq(tablet) {
+        border: none;
+    }
 }
 
 .recipe-header__country-content {
@@ -64,6 +79,13 @@
 .recipe-header__title {
     max-width: 600px;
     margin: 6px 0 20px;
-    font-size: 68px;
-    line-height: 68px;
+    font-size: 48px;
+    line-height: 48px;
+    border-top: 1px solid white;
+    padding-top: 12px;
+
+    @include mq(tablet) {
+        font-size: 68px;
+        line-height: 68px;
+    }
 }
