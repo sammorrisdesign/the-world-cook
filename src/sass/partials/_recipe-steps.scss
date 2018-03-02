@@ -118,6 +118,43 @@
     background-color: $c-light-grey;
 }
 
+.recipe-step__tip {
+    position: absolute;
+    z-index: 2;
+    width: 30%;
+    bottom: 20px;
+    color: $c-white;
+    font-size: 20px;
+    line-height: 28px;
+
+    strong {
+        display: block;
+    }
+}
+
+.recipe-step__line {
+    width: 60%;
+    position: absolute;
+    top: calc(-100% - 4px);
+}
+
+.recipe-step__tip--left {
+    left: 20px;
+
+    .recipe-step__line {
+        right: -19px;
+        transform: scaleX(-1);
+    }
+}
+
+.recipe-step__tip--right {
+    right: 20px;
+
+    .recipe-step__line {
+        left: calc(-60% - 10px);
+    }
+}
+
 .recipe-step__image {
     position: absolute;
     top: 0;
