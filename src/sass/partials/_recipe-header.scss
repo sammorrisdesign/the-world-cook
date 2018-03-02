@@ -2,9 +2,6 @@
     position: relative;
     height: 0;
     padding-top: 56.25%;
-    background-color: $c-grey;
-    background-repeat: no-repeat;
-    background-size: cover;
     color: $c-white;
 
     .nav {
@@ -12,7 +9,17 @@
         top: 0;
         left: 0;
         right: 0;
+        z-index: 2;
     }
+}
+
+.recipe-header__image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
 .recipe-header__content {
@@ -20,6 +27,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 2;
 }
 
 .recipe-header__country {
