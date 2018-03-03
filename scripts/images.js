@@ -14,7 +14,7 @@ for (var i in images) {
     var hasExported = false;
 
     jimp.read(images[i], function(err, image) {
-        if (data[images[i]] == image.hash()) {
+        if (data[images[i]] !== image.hash()) {
             console.log('resizing ' + images[i]);
 
             // add image hash to json file

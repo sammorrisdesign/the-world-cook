@@ -2,7 +2,8 @@
     .recipe--#{$name} {
         .recipe-step__number,
         .recipe-step__corner,
-        .recipe-step__content {
+        .recipe-step__content,
+        .recipe-intro__description a:hover {
             border-color: $c-colour;
         }
 
@@ -14,7 +15,8 @@
 
         .recipe-ingredients__title,
         .recipe-step__ingredient,
-        .recipe-ingredients__row.is-active {
+        .recipe-ingredients__row.is-active,
+        .recipe-intro__description a {
             color: $c-colour;
         }
     }

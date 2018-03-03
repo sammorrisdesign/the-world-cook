@@ -28,18 +28,32 @@
 
     p {
         margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    a {
+        border-bottom: 1px solid $c-black;
     }
 }
 
 .recipe-intro__details {
     list-style: none;
-    margin: 0 20px 0 0;
+    margin: 0 20px 20px 0;
     padding: 0;
+    display: flex;
+
+    @include mq(desktop) {
+        display: block;
+    }
 }
 
 .recipe-intro__detail {
     width: 140px;
-    border-bottom: 1px $c-light-grey solid;
+    padding: 3px 0;
+
+    @include mq(desktop) {
+        border-bottom: 1px $c-light-grey solid;
+    }
 }
 
 .recipe-intro__detail:last-of-type {
