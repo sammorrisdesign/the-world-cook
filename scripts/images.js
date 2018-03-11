@@ -49,8 +49,8 @@ fs.copySync('.images', '.build/assets/images/recipes/');
 
 function getSizes(fileName) {
     if (fileName === 'header') {
-        return [2600, 1300, 1040, 520]
+        return [2600, 1300, 1040, 520, 260]
     } else {
-        return [1520, 840, 760, 420, 260]
+        return [1520, 840, 760, 420]
     }
 }
