@@ -32,6 +32,16 @@ handlebars.registerHelper('json', function(context) {
     return JSON.stringify(context);
 });
 
+handlebars.registerHelper('difficulty', function(value) {
+    if (value === 3) {
+        return 'World Class'
+    } else if (value === 2) {
+        return 'Professional'
+    } else {
+        return 'Semi-Pro'
+    }
+});
+
 var data = fs.readFileSync('.data/data.json');
     data = JSON.parse(data);
 
