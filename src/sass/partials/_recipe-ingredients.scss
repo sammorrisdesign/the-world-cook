@@ -152,10 +152,12 @@
     padding-right: 5px;
     border-right: $c-grey solid 1px;
     flex-shrink: 0;
+    display: none;
+}
 
-    &--imperial {
-        display: none;
-    }
+.imperial .recipe-ingredients__amount--imperial,
+.metric .recipe-ingredients__amount--metric {
+    display: block;
 }
 
 .recipe-ingredients__substitute {
