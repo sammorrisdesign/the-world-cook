@@ -5,6 +5,12 @@
 .recipe-step {
     margin: 20px 0;
 
+    @include mq($until: tablet) {
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh - 132px); // 132 is the ingredients bar + next step + 20 padding above and below
+    }
+
     @include mq(tablet) {
         margin-right: 340px;
     }
@@ -22,6 +28,7 @@
     border-bottom: none;
     padding: 24px 12px;
     flex-shrink: 0;
+    flex-grow: 1;
     display: flex;
     overflow: hidden;
 
@@ -110,7 +117,7 @@
 }
 
 .recipe-step__visual {
-    flex-grow: 2;
+    flex-grow: 0;
     position: relative;
     z-index: 1;
     overflow: hidden;
