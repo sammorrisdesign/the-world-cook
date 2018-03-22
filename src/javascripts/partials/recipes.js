@@ -74,7 +74,7 @@ module.exports = {
     },
 
     toggleRecipeProgress: function() {
-        if (activeStep < 0 || activeStep == totalSteps) {
+        if (activeStep < 0 || activeStep + 1 >= totalSteps) {
             $('.recipe-progress').removeClass('is-active');
         } else {
             $('.recipe-progress').addClass('is-active');

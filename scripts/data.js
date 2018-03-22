@@ -87,6 +87,7 @@ function createRelated(data) {
                     colour: related.colour,
                     recipe: related.recipe,
                     time: related.time,
+                    additionalTime: related.additionalTime,
                     slug: related.slug,
                     country: related.country
                 });
