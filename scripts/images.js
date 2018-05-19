@@ -8,16 +8,13 @@ fs.mkdirsSync('.images');
 var data = fs.readFileSync('.data/images.json');
     data = JSON.parse(data);
 
-var importedImage = process.argv.slice(2)[0];
-var images = importedImage ? [importedImage] : glob.readdirSync('src/assets/images/recipes/**/*.jpg');
-
-console.log(importedImage);
+var images = glob.readdirSync('src/assets/images/recipes/**/*.jpg');
 
 for (var i in images) {
     var hasExported = false;
 
     jimp.read(images[i], function(err, image) {
-        if (data[images[i]] !== image.hash() || importedImage) {
+        if (data[images[i]] !== image.hash()) {
             console.log('resizing ' + images[i]);
 
             // add image hash to json file

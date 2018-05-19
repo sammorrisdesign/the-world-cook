@@ -4,11 +4,6 @@ var static = require('node-static');
 
 watch(['./src/'], { recursive: true }, function(evt, file) {
     console.log('change to ' + file);
-
-    if (file.includes('.jpg')) {
-        cmd.get('npm run images ' + file);
-    }
-
     cmd.get('node scripts/compile.js');
 });
 

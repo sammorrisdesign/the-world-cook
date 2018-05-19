@@ -7,7 +7,9 @@
     "start": "node scripts/compile.js && node scripts/dev.js",
     "update": "node scripts/data.js",
     "postupdate": "node scripts/compile.js",
-    "images": "node scripts/images.js"
+    "images": "node scripts/images.js",
+    "predeploy": "node scripts/compile.js",
+    "deploy": "node scripts/deploy.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,8 @@
     "node-cmd": "^3.0.0",
     "node-sass": "^4.5.3",
     "node-static": "^0.7.9",
-    "node-watch": "^0.5.4"
-  }
+    "node-watch": "^0.5.4",
+    "sftp-sync-deploy": "^0.7.1"
+  },
+  "dependencies": {}
 }
