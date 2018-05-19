@@ -101,7 +101,7 @@ function createRelated(data) {
 gsjson({
     spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
     allWorksheets: true,
-    credentials: require('../keys.json')
+    credentials: require('../keys.json').google
 }).then(function(result) {
     // organise response in a useable way
     for (var worksheet in result) {
@@ -124,6 +124,8 @@ gsjson({
 }).catch(function(err) {
     console.log(err.message);
     console.log(err.stack);
+
+    return;
 });
 
 deasync.loopWhile(function() {
