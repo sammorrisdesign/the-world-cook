@@ -13,7 +13,10 @@ deploy({
     localDir: '.build',
     remoteDir: '/var/www/theworldcook.com/public_html/beta.theworldcook.com'
 }, {
-    dryRun: true
+    dryRun: false,
+    exclude: [
+      '**/.DS_Store'
+    ]
 }).then(function() {
     console.log('success!');
 }).catch(function(err) {

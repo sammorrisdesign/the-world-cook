@@ -8,7 +8,6 @@
     "update": "node scripts/data.js",
     "postupdate": "node scripts/compile.js",
     "images": "node scripts/images.js",
-    "predeploy": "node scripts/compile.js",
     "deploy": "node scripts/deploy.js"
   },
   "repository": {

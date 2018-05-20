@@ -12,6 +12,8 @@ var importedImage = process.argv.slice(2)[0];
 var images = importedImage ? [importedImage] : glob.readdirSync('src/assets/images/recipes/**/*.jpg');
 
 for (var i in images) {
+
+    console.log(images[i]);
     var hasExported = false;
 
     jimp.read(images[i], function(err, image) {
