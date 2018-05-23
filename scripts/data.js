@@ -98,38 +98,41 @@ function createRelated(data) {
     return data;
 }
 
-gsjson({
-    spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
-    allWorksheets: true,
-    credentials: require('../keys.json').google
-}).then(function(result) {
-    // organise response in a useable way
-    for (var worksheet in result) {
-        for (var worksheetTitle in result[worksheet]) {
-            data[worksheetTitle] = result[worksheet][worksheetTitle];
+function getData() {
+    gsjson({
+        spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
+        allWorksheets: true,
+        credentials: require('../keys.json').google
+    }).then(function(result) {
+        // organise response in a useable way
+        for (var worksheet in result) {
+            for (var worksheetTitle in result[worksheet]) {
+                data[worksheetTitle] = result[worksheet][worksheetTitle];
+            }
         }
-    }
 
-    data = organiseIntoRecipe(data);
-    data = injectIngredientsIntoSteps(data);
-    data = convertDescriptionsToHTML(data);
-    data = cleanIngredientAmounts(data);
-    data = createRelated(data);
+        data = organiseIntoRecipe(data);
+        data = injectIngredientsIntoSteps(data);
+        data = convertDescriptionsToHTML(data);
+        data = cleanIngredientAmounts(data);
+        data = createRelated(data);
 
-    fs.writeFileSync('.data/data.json', JSON.stringify(data));
+        fs.writeFileSync('.data/data.json', JSON.stringify(data));
 
-    console.log('data updated');
+        console.log('data updated');
 
-    isDone = true;
-}).catch(function(err) {
-    console.log(err.message);
-    console.log(err.stack);
+        isDone = true;
+    }).catch(function(err) {
+        console.log(err.message);
+        console.log(err.stack);
+        isDone = true;
 
-    return;
-});
+        return;
+    });
 
-deasync.loopWhile(function() {
-    return !isDone;
-});
+    deasync.loopWhile(function() {
+        return !isDone;
+    });
+}
 
-return data;
+getData();
