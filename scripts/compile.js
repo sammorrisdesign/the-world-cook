@@ -32,6 +32,18 @@ handlebars.registerHelper('json', function(context) {
     return JSON.stringify(context);
 });
 
+handlebars.registerHelper('suffix', function(date) {
+    if (date === 21) {
+        return 'st'
+    } else if (date === 22) {
+        return 'nd'
+    } else if (date === 23) {
+        return 'rd'
+    } else {
+        return 'th'
+    }
+});
+
 handlebars.registerHelper('difficulty', function(value) {
     if (value === 3) {
         return 'World Class'

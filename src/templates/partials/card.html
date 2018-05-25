@@ -1,4 +1,9 @@
-{{#if slug}}
+{{#if isScheduled}}
+    <div class='card card--empty'>
+        <h2 class='card__country-name'>{{ country }}</h2>
+        <h2 class='card__date'>{{ date }}<sup>{{ suffix date }}</sup></h2>
+    </div>
+{{ else }}
     <div class='card card--{{ colour }}'>
         <a class='card__link' href='/recipes/{{ slug }}.html'></a>
         <div class='card__country'>
@@ -19,10 +24,5 @@
                 <span class='card__meta-time'>{{ time }}<br /><i>{{ additionalTime }}</i></span>
             </div>
         </div>
-    </div>
-{{else}}
-    <div class='card card--empty'>
-        <h2 class='card__country-name'>{{ country }}</h2>
-        <h2 class='card__date'>14<sup>th</sup></h2>
     </div>
 {{/if}}
