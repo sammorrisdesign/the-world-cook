@@ -52,13 +52,23 @@
     padding: 3px 0;
 
     @include mq(desktop) {
-        border-bottom: 1px $c-light-grey solid;
         padding: 0;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            height: 1px;
+            background-color: $c-light-grey;
+            width: 100%;
+        }
     }
 }
 
-.recipe-intro__detail:last-of-type {
-    border-bottom: 0;
+.recipe-intro__detail:last-of-type:after {
+    content: none;
 }
 
 .recipe-intro__detail-label {
