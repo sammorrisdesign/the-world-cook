@@ -21,7 +21,9 @@
         .recipe-ingredients__title,
         .recipe-step__ingredient,
         .recipe-ingredients__row.is-active,
-        .recipe-intro__description a {
+        .recipe-intro__description a,
+        .imperial & .recipe-intro__detail-unit--imperial,
+        .metric & .recipe-intro__detail-unit--metric {
             color: $c-colour;
         }
     }

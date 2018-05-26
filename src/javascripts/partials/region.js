@@ -3,6 +3,15 @@ var region = null;
 module.exports = {
     init: function() {
         this.getRegion();
+        this.bindings();
+    },
+
+    bindings: function() {
+        $('.recipe-intro__detail-unit').click(function(e) {
+            region = $(e.currentTarget).data('unit');
+            this.setRegion();
+            this.storeRegionLocally();
+        }.bind(this));
     },
 
     getRegion: function() {
@@ -20,7 +29,7 @@ module.exports = {
     },
 
     setRegion: function() {
-        $('body').addClass(region);
+        $('body').removeClass('imperial metric').addClass(region);
     },
 
     detectRegion: function() {

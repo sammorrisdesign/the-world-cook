@@ -78,3 +78,8 @@
 .recipe-intro__detail-value {
     color: $c-grey;
 }
+
+.imperial .recipe-intro__detail-unit--imperial,
+.metric .recipe-intro__detail-unit--metric {
+    pointer-events: none;
+}
