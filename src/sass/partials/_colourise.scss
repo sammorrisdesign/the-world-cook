@@ -23,7 +23,8 @@
         .recipe-ingredients__row.is-active,
         .recipe-intro__description a,
         .imperial & .recipe-intro__detail-unit--imperial,
-        .metric & .recipe-intro__detail-unit--metric {
+        .metric & .recipe-intro__detail-unit--metric,
+        .recipe-intro__detail-unit:hover {
             color: $c-colour;
         }
     }

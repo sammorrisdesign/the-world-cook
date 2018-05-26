@@ -79,7 +79,27 @@
     color: $c-grey;
 }
 
+.recipe-intro__detail-unit {
+    background-position: -120px .5em; 
+}
+
 .imperial .recipe-intro__detail-unit--imperial,
 .metric .recipe-intro__detail-unit--metric {
     pointer-events: none;
 }
+
+.metric .recipe-intro__detail-unit--imperial,
+.imperial .recipe-intro__detail-unit--metric {
+    background-image: linear-gradient(to bottom, $c-grey 0%, $c-grey 100%);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 .5em;
+    transition: background 0.2s ease-in, color 0.2s ease-in;
+    cursor: pointer;
+
+    &:hover {
+        background-image: linear-gradient(to bottom, $c-black 0%, $c-black 100%);
+        background-position: 0 .95em;
+    }
+}
+
