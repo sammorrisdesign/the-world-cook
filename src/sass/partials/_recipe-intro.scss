@@ -53,6 +53,7 @@
 
     @include mq(desktop) {
         border-bottom: 1px $c-light-grey solid;
+        padding: 0;
     }
 }
 
