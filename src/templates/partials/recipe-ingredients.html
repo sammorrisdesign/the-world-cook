@@ -2,6 +2,9 @@
     <div class='container'>
         <div class='recipe-ingredients__box'>
             <h2 class='recipe-ingredients__title'>Ingredients</h2>
+            <svg class='recipe-ingredients__expand' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <path d="M16 17.7L8.3 9.9 6 12.1l10 10 10-10-2.3-2.2-7.7 7.8z"/>
+            </svg>
             <ul class='recipe-ingredients__rows'>
                 {{#each ingredients}}
                     <li class='recipe-ingredients__row recipe-ingredients__row--{{ handle }}'>
