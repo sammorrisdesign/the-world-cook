@@ -14,7 +14,14 @@
                         <div class='recipe-ingredients__ingredient'>
                             <span class='recipe-ingredients__ingredient-name'>{{ ingredient }} <em>{{ prepared }}</em></span>
                             {{#if substitute}}
-                                <img class='recipe-ingredients__substitute' src='/assets/icons/substitute.svg' title='Substitute ingredient' data-substitute='{{ substitute }}' />
+                                <div class='recipe-ingredients__substitute' title='Substitue ingredient' data-substitute='{{ substitute }}'>
+                                    <svg class='recipe-ingredients__substitute-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                        <path d="M2 20h20v2H2z"/>
+                                        <path d="M2.8 21l5-4.9-1.4-1.5L0 21l6.4 6.4 1.4-1.5z"/>
+                                        <path transform="rotate(-180 20 10)" d="M10 9h20v2H10z"/>
+                                        <path d="M29.2 10l-5 4.9 1.4 1.5L32 10l-6.4-6.4-1.4 1.5z"/>
+                                    </svg>
+                                </div>
                             {{/if}}
                         </div>
                     </li>

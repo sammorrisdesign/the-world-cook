@@ -13,6 +13,10 @@
             background-color: $c-colour;
         }
 
+        .recipe-ingredients__substitute-icon {
+            fill: $c-colour;
+        }
+
         .recipe-ingredients__title,
         .recipe-step__ingredient,
         .recipe-ingredients__row.is-active,
