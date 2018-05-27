@@ -1,12 +1,21 @@
 .home-header {
     background-color: $c-green;
-    margin-bottom: 20px;
+}
+
+.home-header__content {
+    padding: 82px 0 120px 0;
+    color: $c-white;
+    max-width: 360px;
 }
 
 .home-header__copy {
     margin: 0;
-    padding: 82px 0 120px 0;
-    color: $c-white;
     font-size: 72px;
     line-height: 1;
+}
+
+.home-header__description {
+    margin: 0;
+    font-size: 20px;
+    line-height: 28px;
 }

@@ -4,17 +4,24 @@
     {{> partials/nav }}
 
     <div class='container'>
-        <h2 class='home-header__copy'>
-            32 Recipes<br /> 32 Countries<br /> Filler text
-        </h2>
+        <div class='home-header__content'>
+            <h2 class='home-header__copy'>
+                A game of<br />32 dishes
+            </h2>
+            <p class='home-header__description'>
+                32 dishes to represent the 32 countries competing to win the 2018 World Cup in Russia.
+            </p>
+        </div>
     </div>
 </div>
 
-<div class='container home-recipes'>
-    <div class='cards'>
-        {{#each @this}}
-            {{> partials/card }}
-        {{/each}}
+<div class='home-recipes'>
+    <div class='container'>
+        <div class='cards'>
+            {{#each @this}}
+                {{> partials/card }}
+            {{/each}}
+        </div>
     </div>
 </div>
 
