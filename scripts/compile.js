@@ -32,6 +32,14 @@ handlebars.registerHelper('json', function(context) {
     return JSON.stringify(context);
 });
 
+handlebars.registerHelper('if_eq', function(a, b, opts) {
+    if (a == b) {
+        return opts.fn(this);
+    } else {
+        return opts.inverse(this);
+    }
+});
+
 handlebars.registerHelper('suffix', function(date) {
     if (date === 21) {
         return 'st'

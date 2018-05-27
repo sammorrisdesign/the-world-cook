@@ -17,10 +17,87 @@
 
 <div class='home-recipes'>
     <div class='container'>
+        <div class='home-recipes__header'>
+            <h2 class='home-recipes__title'>Recipes</h2>
+            <ul class='home-recipes__filters'>
+                <span class='home-recipes__filter-label'>View by:</span>
+                <li class='home-recipes__filter'>Group</li>
+                <li class='home-recipes__filter'>Region</li>
+                <li class='home-recipes__filter'>Time</li>
+            </ul>
+        </div>
         <div class='cards'>
-            {{#each @this}}
-                {{> partials/card }}
-            {{/each}}
+            <div class='card-group'>
+                <h2 class='card-group__title'>Group A</h2>
+                {{#each @this }}
+                    {{#if_eq group 'A'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Group B</h2>
+                {{#each @this }}
+                    {{#if_eq group 'B'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Group C</h2>
+                {{#each @this }}
+                    {{#if_eq group 'C'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Group D</h2>
+                {{#each @this }}
+                    {{#if_eq group 'D'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Group E</h2>
+                {{#each @this }}
+                    {{#if_eq group 'E'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Group F</h2>
+                {{#each @this }}
+                    {{#if_eq group 'F'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Group G</h2>
+                {{#each @this }}
+                    {{#if_eq group 'G'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Group H</h2>
+                {{#each @this }}
+                    {{#if_eq group 'H'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
         </div>
     </div>
 </div>

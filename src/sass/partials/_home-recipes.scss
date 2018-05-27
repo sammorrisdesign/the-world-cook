@@ -2,3 +2,35 @@
     padding: 20px 0;
     background-color: $c-light-grey;
 }
+
+.home-recipes__header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+}
+
+.home-recipes__title {
+    margin: 0;
+    font-size: 28px;
+    line-height: 32px;
+    color: $c-black;
+}
+
+.home-recipes__filters {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.home-recipes__filter,
+.home-recipes__filter-label {
+    display: inline-block;
+    width: 100px;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: right;
+}
+
+.home-recipes__filter-label {
+    color: $c-grey;
+}

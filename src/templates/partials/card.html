@@ -4,7 +4,7 @@
         <h2 class='card__date'>{{ date }}<sup>{{ suffix date }}</sup></h2>
     </div>
 {{ else }}
-    <div class='card card--{{ colour }}'>
+    <div class='card card--{{ colour }}' data-region='{{ region }}' data-group='{{ group }}'>
         <a class='card__link' href='/recipes/{{ slug }}.html'></a>
         <div class='card__country'>
             <h3 class='card__country-name'>{{ country }}</h3>
