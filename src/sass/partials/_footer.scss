@@ -1,0 +1,41 @@
+.footer {
+    padding: 20px 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.footer__links,
+.footer__social {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer__link {
+    width: 100px;
+    height: 0;
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    font-size: 20px;
+    text-align: left;
+
+    a {
+        color: $c-black;
+        border-bottom: 1px solid $c-black;
+    }
+}
+
+.footer__social-button {
+    width: 26px;
+    margin-left: 10px;
+    display: inline-block;
+
+    &:hover a {
+        text-decoration: none;
+        border-bottom: 1px solid $c-black;
+    }
+}
