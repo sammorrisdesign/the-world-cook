@@ -1,6 +1,30 @@
 .home-recipes {
     padding: 20px 0;
     background-color: $c-light-grey;
+
+    .cards {
+        display: none;
+    }
+
+    &.groups {
+        .cards--groups {
+            display: block;
+        }
+
+        .home-recipes__filter--groups {
+            pointer-events: none;
+        }
+    }
+
+    &.regions {
+        .cards--regions {
+            display: block;
+        }
+
+        .home-recipes__filter--regions {
+            pointer-events: none;
+        }
+    }
 }
 
 .home-recipes__header {
@@ -25,7 +49,6 @@
 .home-recipes__filter,
 .home-recipes__filter-label {
     display: inline-block;
-    width: 100px;
     font-size: 20px;
     line-height: 28px;
     text-align: right;
@@ -33,4 +56,26 @@
 
 .home-recipes__filter-label {
     color: $c-grey;
+}
+
+.home-recipes__filter {
+    background-position: -120px .7em; 
+    color: $c-green; 
+}
+
+.regions .home-recipes__filter--groups,
+.groups .home-recipes__filter--regions {
+    background-image: linear-gradient(to bottom, $c-grey 0%, $c-grey 100%);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 .7em;
+    transition: background 0.2s ease-in, color 0.2s ease-in;
+    cursor: pointer;
+    color: $c-grey;
+
+    &:hover {
+        background-image: linear-gradient(to bottom, $c-black 0%, $c-black 100%);
+        background-position: 0 1.2em;
+        color: $c-green;
+    }
 }

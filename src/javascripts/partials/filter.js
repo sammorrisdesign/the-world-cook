@@ -1,19 +1,17 @@
 module.exports = {
     init: function() {
-        // this.sortCards('group');
+        this.bindings();
     },
 
-    sortCards: function(sortBy) {
-        $('.cards .card').each(function(i, el) {
-            var $el = $(el);
-            var value = $el.data(sortBy);
-            var target = '.card-group--' + value;
+    bindings: function() {
+        $('.home-recipes__filter').click(function(e) {
+            filter = $(e.currentTarget).data('filter');
+            console.log(filter);
+            this.sortBy(filter);
+        }.bind(this));
+    },
 
-            if ($(target).length === 0) {
-                $('.cards').append('<div class=\'card-group card-group--' + value + '\'><h2 class=\'card-group__title\'>' + (sortBy == 'group' ? 'Group ' : '') + value + '</h2></div>');
-            }
-
-            $(target).append($el);
-        });
+    sortBy: function(filter) {
+        $('.home-recipes').removeClass('regions groups').addClass(filter);
     }
 }

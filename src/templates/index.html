@@ -15,18 +15,17 @@
     </div>
 </div>
 
-<div class='home-recipes'>
+<div class='home-recipes groups'>
     <div class='container'>
         <div class='home-recipes__header'>
             <h2 class='home-recipes__title'>Recipes</h2>
             <ul class='home-recipes__filters'>
                 <span class='home-recipes__filter-label'>View by:</span>
-                <li class='home-recipes__filter'>Group</li>
-                <li class='home-recipes__filter'>Region</li>
-                <li class='home-recipes__filter'>Time</li>
+                <li class='home-recipes__filter home-recipes__filter--groups' data-filter='groups'>Group</li>
+                <li class='home-recipes__filter home-recipes__filter--regions' data-filter='regions'>Region</li>
             </ul>
         </div>
-        <div class='cards'>
+        <div class='cards cards--groups'>
             <div class='card-group'>
                 <h2 class='card-group__title'>Group A</h2>
                 {{#each @this }}
@@ -94,6 +93,55 @@
                 <h2 class='card-group__title'>Group H</h2>
                 {{#each @this }}
                     {{#if_eq group 'H'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+        </div>
+
+        <!-- Regions start here -->
+
+        <div class='cards cards--regions'>
+            <div class='card-group'>
+                <h2 class='card-group__title'>Africa <span class='card-group__subtitle'>CAF</span></h2>
+                {{#each @this }}
+                    {{#if_eq region 'Africa'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Asia <span class='card-group__subtitle'>AFC</span></h2>
+                {{#each @this }}
+                    {{#if_eq region 'Asia'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Europe <span class='card-group__subtitle'>UEFA</span></h2>
+                {{#each @this }}
+                    {{#if_eq region 'Europe'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>Central America <span class='card-group__subtitle'>CONCACAF</span></h2>
+                {{#each @this }}
+                    {{#if_eq region 'North America'}}
+                        {{> partials/card }}
+                    {{/if_eq}}
+                {{/each}}
+            </div>
+
+            <div class='card-group'>
+                <h2 class='card-group__title'>South America <span class='card-group__subtitle'>CONMEBOL</span></h2>
+                {{#each @this }}
+                    {{#if_eq region 'South America'}}
                         {{> partials/card }}
                     {{/if_eq}}
                 {{/each}}
