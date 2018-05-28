@@ -85,6 +85,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    transition: transform 0.2s ease-in;
 
     .card--red & {
         transform: rotate(-1deg) translateX(2px);
@@ -105,6 +106,10 @@
 
     .card--green & {
         transform: rotate(.25deg) translateY(2px) translateX(6px);
+    }
+
+    &:hover {
+        transform: rotate(0deg) translateY(0px) translateX(0px);
     }
 }
 
