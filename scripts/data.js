@@ -120,6 +120,17 @@ function createRelated(data) {
     return data;
 }
 
+function addScheduleStatus(data) {
+    for (var i in data) {
+        var currentDate = new Date('June 11 2018');
+        var publishDate = new Date('June ' + data[i].date + ' 2018');
+
+        data[i].isScheduled = publishDate > currentDate || publishDate == currentDate;
+    }
+
+    return data;
+}
+
 function getData() {
     gsjson({
         spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
@@ -139,6 +150,7 @@ function getData() {
         data = cleanIngredientAmounts(data);
         data = createIngredientHandles(data);
         data = createRelated(data);
+        data = addScheduleStatus(data);
 
         fs.writeFileSync('.data/data.json', JSON.stringify(data));
 
