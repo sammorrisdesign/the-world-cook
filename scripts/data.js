@@ -140,7 +140,8 @@ function createRelated(data) {
                     time: related.time,
                     additionalTime: related.additionalTime,
                     slug: related.slug,
-                    country: related.country
+                    country: related.country,
+                    date: related.date
                 });
             }
         }
