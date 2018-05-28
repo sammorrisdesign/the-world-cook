@@ -23,6 +23,7 @@
                 <h2 class='card__recipe'>{{ recipe }}</h2>
                 <div class='card__meta'>
                     <span class='card__meta-time'>{{ time }}<br /><i>{{ additionalTime }}</i></span>
+                    {{#if isVegetarian}}<span class='card__meta-veggie'>V</span>{{/if}}
                 </div>
             </div>
         </div>
