@@ -43,9 +43,39 @@ function injectIngredientsIntoSteps(data) {
     return data;
 }
 
+
+function convertTempsToHTML(data) {
+    var regEx = RegExp(/[0-9]{3}F\/[0-9]{3}C/g);
+
+    for (var i in data) {
+        for (var step in data[i].steps) {
+            var string = data[i].steps[step].instructions;
+            var match;
+            var matches = [];
+
+            while ((match = regEx.exec(string)) != null) {
+                matches.unshift(match.index);
+            }
+
+            matches.forEach(function(index) {
+                console.log(index);
+                var fahrenheit = string.substring(index, index + 3);
+                var celsius = string.substring(index + 5, index + 8);
+
+                string = string.substring(0, index) + '<span class=\'recipe-step__temp recipe-step__temp--fahrenheit\'>' + fahrenheit + '&deg;F</span><span class=\'recipe-step__temp recipe-step__temp--celsius\'>' + celsius + '&deg;C</span>' + string.substring(index + 9, string.length);
+            });
+
+            data[i].steps[step].instructions = string;
+        }
+    }
+
+    return data;
+}
+
 function convertDescriptionsToHTML(data) {
     for (var i in data) {
         if (data[i].description) {
+            
             data[i].description = markdown.toHTML(data[i].description);
         }
     }
@@ -147,6 +177,7 @@ function getData() {
 
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
+        data = convertTempsToHTML(data);
         data = convertDescriptionsToHTML(data);
         data = cleanIngredientAmounts(data);
         data = createIngredientHandles(data);

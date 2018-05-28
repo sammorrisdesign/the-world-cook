@@ -116,6 +116,15 @@
     border-bottom: 1px solid $c-black;
 }
 
+.recipe-step__temp {
+    display: none;
+}
+
+.imperial .recipe-step__temp--fahrenheit,
+.metric .recipe-step__temp--celsius {
+    display: inline;
+}
+
 .recipe-step__visual {
     flex-grow: 0;
     position: relative;
