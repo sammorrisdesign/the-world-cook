@@ -15,6 +15,7 @@
 }
 
 .card-group {
+    position: relative;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
@@ -26,7 +27,17 @@
     margin-bottom: 16px;
     font-size: 28px;
     line-height: 32px;
-    color: $c-black;
+    color: $c-green;
+
+    @include mq(desktopPlus) {
+        position: absolute;
+        transform: rotate(-90deg);
+        width: 310px;
+        left: -32px;
+        top: 294px;
+        text-align: center;
+        transform-origin: left;
+    }
 }
 
 .card-group__subtitle {
