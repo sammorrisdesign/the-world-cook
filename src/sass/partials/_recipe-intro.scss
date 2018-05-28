@@ -41,6 +41,8 @@
     margin: 0 20px 20px 0;
     padding: 0;
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
     @include mq(desktop) {
         display: block;
@@ -48,8 +50,12 @@
 }
 
 .recipe-intro__detail {
-    width: 140px;
+    width: calc(33% - 10px);
     padding: 3px 0;
+
+    @include mq(tablet) {
+        width: 140px;
+    }
 
     @include mq(desktop) {
         padding: 0;
@@ -63,6 +69,23 @@
             height: 1px;
             background-color: $c-light-grey;
             width: 100%;
+        }
+    }
+}
+
+.recipe-intro__detail--units {
+    @include mq($until: tablet) {
+        width: 100%;
+        border-top: 1px solid $c-light-grey;
+        margin-top: 6px;
+        padding-top: 6px;
+
+        .recipe-intro__detail-label {
+            display: inline;
+
+            &:after {
+                content: ':';
+            }
         }
     }
 }
