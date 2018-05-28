@@ -1,4 +1,9 @@
-.cards {
+.card-group {
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+
     .card {
         width: calc(50% - 10px);
         display: flex;
@@ -12,13 +17,6 @@
     .card__content {
         flex-grow: 1;
     }
-}
-
-.card-group {
-    position: relative;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-between;
 }
 
 .card-group__title {

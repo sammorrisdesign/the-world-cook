@@ -2,9 +2,11 @@
     <div class='container'>
         <h2 class='recipe-related__title'>More recipes from Group {{ group }}</h2>
         <div class='cards'>
-            {{#each related }}
-                {{> partials/card }}
-            {{/each}}
+            <div class='card-group'>
+                {{#each related }}
+                    {{> partials/card }}
+                {{/each}}
+            </div>
         </div>
     </div>
 </div>
