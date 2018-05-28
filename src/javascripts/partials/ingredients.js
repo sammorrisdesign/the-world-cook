@@ -21,8 +21,10 @@ module.exports = {
         if ($('.recipe-ingredients').hasClass('is-expandable')) {
             if ($('.recipe-ingredients').hasClass('is-expanded')) {
                 $('.recipe-ingredients').removeClass('is-expanded');
+                $('body').removeClass('is-expanded');
             } else {
                 $('.recipe-ingredients').addClass('is-expanded');
+                $('body').addClass('is-expanded');
             }
         }
     },
@@ -39,6 +41,7 @@ module.exports = {
 
     reset: function(scrollTop, activeStep, totalSteps) {
         $('.recipe-ingredients').removeClass('is-expandable is-ended is-ended--mobile is-fixed is-expanded');
+        $('body').removeClass('is-expanded');
         this.updateNonFixedIngredientsPosition(scrollTop);
         this.setHeight();
         this.checkIngredientsPosition(scrollTop, activeStep, totalSteps);

@@ -40,7 +40,7 @@
             .recipe-ingredients__rows {
                 position: fixed;
                 top: 0;
-                z-index: 2;
+                z-index: 4;
                 width: 100%;
                 left: 0;
                 background-color: $c-black;
@@ -106,6 +106,8 @@
     pointer-events: auto;
 
     @include mq(tablet) {
+        overflow: scroll;
+        max-height: calc(100vh - 24px - 54px);
         float: right;
         width: 320px;
         margin: 12px 0 0 0;
@@ -136,6 +138,11 @@
     list-style: none;
     padding: 0;
     margin: 0;
+
+    @include mq($until: tablet) {
+        overflow: scroll;
+        height: 100vh;
+    }
 }
 
 .recipe-ingredients__row {

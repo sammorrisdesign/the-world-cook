@@ -58,7 +58,6 @@ function convertTempsToHTML(data) {
             }
 
             matches.forEach(function(index) {
-                console.log(index);
                 var fahrenheit = string.substring(index, index + 3);
                 var celsius = string.substring(index + 5, index + 8);
 
