@@ -141,7 +141,9 @@ function createRelated(data) {
                     additionalTime: related.additionalTime,
                     slug: related.slug,
                     country: related.country,
-                    date: related.date
+                    date: related.date,
+                    isScheduled: related.isScheduled,
+                    isBeta: related.isBeta
                 });
             }
         }
@@ -181,8 +183,8 @@ function getData() {
         data = convertDescriptionsToHTML(data);
         data = cleanIngredientAmounts(data);
         data = createIngredientHandles(data);
-        data = createRelated(data);
         data = addScheduleStatus(data);
+        data = createRelated(data);
 
         fs.writeFileSync('.data/data.json', JSON.stringify(data));
 
