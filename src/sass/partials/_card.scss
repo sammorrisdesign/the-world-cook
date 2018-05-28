@@ -92,6 +92,10 @@
     .card--light-blue & {
         transform: rotate(-.75deg) translateY(6px) translateX(-1px);
     }
+
+    .card--green & {
+        transform: rotate(.25deg) translateY(2px) translateX(6px);
+    }
 }
 
 .card__frame {
