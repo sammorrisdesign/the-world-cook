@@ -47,6 +47,8 @@
                 padding: 49px 20px 10px;
                 box-sizing: border-box;
                 transform: translateY(-100%);
+                overflow-y: scroll;
+                height: 100vh;
             }
 
             .recipe-ingredients__expand {
@@ -138,11 +140,6 @@
     list-style: none;
     padding: 0;
     margin: 0;
-
-    @include mq($until: tablet) {
-        overflow: scroll;
-        height: 100vh;
-    }
 }
 
 .recipe-ingredients__row {
@@ -171,6 +168,10 @@
             background-position: 0 .5em;
         }
     }
+}
+
+.recipe-ingredients__ingredient {
+    padding-right: 30px;
 }
 
 .recipe-ingredients__amount {

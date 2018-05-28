@@ -5,9 +5,13 @@
     right: 0;
     width: 100%;
     z-index: 3;
-    padding: 12px 0;
+    padding: 7px 0;
     transform: translateY(100%);
     transition: transform 0.2s ease-in;
+
+    @include mq(tablet) {
+        padding: 12px 0;
+    }
 
     &.is-active {
         transform: translateY(0%);
