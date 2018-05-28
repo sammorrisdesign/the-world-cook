@@ -33,9 +33,7 @@ module.exports = {
         }.bind(this));
 
         $('.recipe-progress').click(function() {
-            $('html, body').animate({
-                scrollTop: $('.recipe-step--' + (activeStep + 1)).offset().top
-            }, 400);
+            this.scrollTo(activeStep + 1);
         }.bind(this));
     },
 
@@ -49,6 +47,14 @@ module.exports = {
         this.toggleRecipeProgress();
         ingredients.checkIngredientsPosition(scrollTop, activeStep, totalSteps);
         ingredients.checkOffIngredients(activeStep);
+    },
+
+    scrollTo: function(step) {
+        var offset = 56;
+
+        $('html, body').animate({
+            scrollTop: $('.recipe-step--' + step).offset().top - offset
+        }, 400);
     },
 
     updateScrollTop: function() {
