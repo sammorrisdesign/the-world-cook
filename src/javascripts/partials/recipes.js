@@ -50,7 +50,7 @@ module.exports = {
     },
 
     scrollTo: function(step) {
-        var offset = 56;
+        var offset = $('body').width() > 740 ? 12 : 56;
 
         $('html, body').animate({
             scrollTop: $('.recipe-step--' + step).offset().top - offset
