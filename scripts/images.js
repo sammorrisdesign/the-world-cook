@@ -48,6 +48,7 @@ for (var i in images) {
     });
 }
 
+fs.removeSync('.build/assets/images/recipes/');
 fs.copySync('.images', '.build/assets/images/recipes/');
 
 function getSizes(fileName) {
