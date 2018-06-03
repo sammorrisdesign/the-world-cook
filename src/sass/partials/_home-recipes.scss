@@ -55,7 +55,7 @@
 }
 
 .home-recipes__filter-label {
-    color: $c-black;
+    color: $c-grey;
 }
 
 .home-recipes__filter {
@@ -65,17 +65,12 @@
 
 .regions .home-recipes__filter--groups,
 .groups .home-recipes__filter--regions {
-    background-image: linear-gradient(to bottom, $c-grey 0%, $c-grey 100%);
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
-    background-position: 0 .7em;
-    transition: background 0.2s ease-in, color 0.2s ease-in;
+    transition: color 0.2s ease-in;
     cursor: pointer;
-    color: $c-grey;
+    color: $c-black;
 
     &:hover {
-        background-image: linear-gradient(to bottom, $c-black 0%, $c-black 100%);
-        background-position: 0 1.2em;
         color: $c-green;
+        border-bottom: 1px solid $c-black;
     }
 }

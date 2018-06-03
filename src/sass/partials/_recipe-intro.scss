@@ -99,11 +99,25 @@
 }
 
 .recipe-intro__detail-value {
+    position: relative;
     color: $c-grey;
+    display: block;
 }
 
 .recipe-intro__detail-unit {
-    background-position: -120px .5em; 
+    display: block;
+    text-indent: 22px;
+}
+
+.recipe-intro__detail-ball {
+    fill: none;
+    stroke: $c-black;
+    stroke-width: 6px;
+    width: 16px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    transition: transform 0.3s ease-out;
 }
 
 .imperial .recipe-intro__detail-unit--imperial,
@@ -113,16 +127,55 @@
 
 .metric .recipe-intro__detail-unit--imperial,
 .imperial .recipe-intro__detail-unit--metric {
-    background-image: linear-gradient(to bottom, $c-grey 0%, $c-grey 100%);
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
-    background-position: 0 .5em;
-    transition: background 0.2s ease-in, color 0.2s ease-in;
+    transition: color 0.2s ease-in;
     cursor: pointer;
+    color: $c-black;
+}
 
-    &:hover {
-        background-image: linear-gradient(to bottom, $c-black 0%, $c-black 100%);
-        background-position: 0 .95em;
+@keyframes toImperial {
+    0% {
+        transform: translate(0, 28px) rotate(360deg);
+    }
+    50%{
+        transform: translate(2px, 12.5px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0px) rotate(0deg);
+    }
+}
+
+
+.imperial .recipe-intro__detail-ball {
+    animation: toImperial 0.3s linear;
+    transform: translate(0, 0);
+}
+
+@keyframes toMetric {
+    0% {
+        transform: translate(0, 3px) rotate(0deg);
+    }
+    50%{
+        transform: translate(-2px, 12.5px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 28px) rotate(360deg);
+    }
+}
+
+.metric .recipe-intro__detail-ball {
+    animation: toMetric 0.3s linear;
+    transform: translate(0, 28px);
+}
+
+.imperial .recipe-intro__detail-unit--metric {
+    &:hover ~ .recipe-intro__detail-ball {
+        transform: translate(0, 3px);
+    }
+}
+
+.metric .recipe-intro__detail-unit--imperial {
+    &:hover ~ .recipe-intro__detail-ball {
+        transform: translate(0, 25px);
     }
 }
 

@@ -1,4 +1,4 @@
-{{#if country}}
+{{#if isBeta}}
     <div class='card card--live card--{{ colour }}' data-region='{{ region }}' data-group='{{ group }}'>
         <div class='card__inner'>
             <a class='card__link' href='/recipes/{{ slug }}.html'></a>
@@ -28,6 +28,9 @@
 {{ else }}
     <div class='card card--empty'>
         <h2 class='card__country-name'>{{ country }}</h2>
-        <h2 class='card__date'>{{ date }}<sup>{{ suffix date }}</sup></h2>
+        <h2 class='card__date'>
+            <sup class='card__date-label'>Coming June</sup>
+            {{ date }}<sup>{{ suffix date }}</sup>
+        </h2>
     </div>
 {{/if}}
