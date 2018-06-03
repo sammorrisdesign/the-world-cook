@@ -42,14 +42,15 @@ function injectIngredientsIntoSteps(data) {
 
                 $('.recipe-step__ingredient').each(function(ingredientNum, el) {
                     if ($(el).attr('data-ingredient').indexOf(' ') >= 0) {
-                        var units = $(el).attr('data-ingredient').split(' ');
-                        var ingredientName = units[0].replace(/-/g, ' ').toUpperCase();
+                        var string = $(el).attr('data-ingredient');
+                        var ingredientName = string.substr(0, string.indexOf(' '));
+                        var units = string.substr(string.indexOf(' ') + 1).split(':');
  
-                        if (units.length == 3) {
-                            $(el).attr('data-ingredient', units[0]);
+                        if (units.length == 2) {
+                            $(el).attr('data-ingredient', ingredientName);
 
                             for (var ingredient in data[i].ingredients) {
-                                if (data[i].ingredients[ingredient].ingredient.toUpperCase() === ingredientName) {
+                                if (data[i].ingredients[ingredient].ingredient.toUpperCase() === ingredientName.replace(/-/g, ' ').toUpperCase()) {
                                     data[i].ingredients[ingredient].isHalfable = true;
 
                                     if (data[i].ingredients[ingredient].halfSteps !== typeof Array) {
@@ -58,8 +59,8 @@ function injectIngredientsIntoSteps(data) {
 
                                     data[i].ingredients[ingredient].halfSteps.push({
                                         stepNum: parseInt(step) + 1,
-                                        imperial: prettifyAmount(units[1]),
-                                        metric: prettifyAmount(units[2])
+                                        imperial: prettifyAmount(units[0]),
+                                        metric: prettifyAmount(units[1])
                                     });
                                 }
                             }
