@@ -2,6 +2,7 @@ var fs = require('fs-extra');
 var deasync = require('deasync');
 var gsjson = require('google-spreadsheet-to-json');
 var markdown = require('markdown').markdown;
+var cheerio = require('cheerio');
 
 var helpers = require('./helpers.js');
 
@@ -36,6 +37,22 @@ function injectIngredientsIntoSteps(data) {
             for (var step in data[i].steps) {
                 data[i].steps[step].instructions = markdown.toHTML(data[i].steps[step].instructions);
                 data[i].steps[step].instructions = data[i].steps[step].instructions.replace(/<a href="/g, '<span class=\'recipe-step__ingredient\' data-ingredient=\'').replace(/">/g, '\'>').replace(/<\/a>/g, '</span>');
+
+                var $ = cheerio.load(data[i].steps[step].instructions);
+
+                $('.recipe-step__ingredient').each(function(i, el) {
+                    if ($(el).attr('data-ingredient').indexOf(' ') >= 0) {
+                        var units = $(el).attr('data-ingredient').split(' ');
+ 
+                        if (units.length == 3) {
+                            $(el).attr('data-ingredient', units[0]);
+                            $(el).attr('data-imperial', units[1]);
+                            $(el).attr('data-metric', units[2]);
+                        }
+                    }
+                });
+
+                data[i].steps[step].instructions = $('p').html();
             }
         }
     }
@@ -62,6 +79,36 @@ function convertTempsToHTML(data) {
                 var celsius = string.substring(index + 5, index + 8);
 
                 string = string.substring(0, index) + '<span class=\'recipe-step__temp recipe-step__temp--fahrenheit\'>' + fahrenheit + '&deg;F</span><span class=\'recipe-step__temp recipe-step__temp--celsius\'>' + celsius + '&deg;C</span>' + string.substring(index + 9, string.length);
+            });
+
+            data[i].steps[step].instructions = string;
+        }
+    }
+
+    return data;
+}
+
+function convertUnitsToHTML(data) {
+    var regEx = RegExp(/\{[^}]*\}/g);
+
+    for (var i in data) {
+        for (var step in data[i].steps) {
+            var string = data[i].steps[step].instructions;
+            var match;
+            var matches = [];
+
+            while ((match = regEx.exec(string)) != null) {
+                matches.unshift(match.index);
+            }
+
+            matches.forEach(function(index) {
+                var endIndex = string.indexOf('}');
+                var bothUnits = string.substring(index, endIndex);
+                var divide = string.indexOf(':');
+                var imperial = string.substring(index + 1, divide);
+                var metric = string.substring(divide + 1, endIndex);
+
+                string = string.substring(0, index) + '<span class=\'recipe-step__unit recipe-step__unit--imperial\'>' + imperial + '</span><span class=\'recipe-step__unit recipe-step__unit--metric\'>' + metric + '</span>' + string.substring(endIndex + 1, string.length);
             });
 
             data[i].steps[step].instructions = string;
@@ -180,6 +227,7 @@ function getData() {
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
         data = convertTempsToHTML(data);
+        data = convertUnitsToHTML(data)
         data = convertDescriptionsToHTML(data);
         data = cleanIngredientAmounts(data);
         data = createIngredientHandles(data);

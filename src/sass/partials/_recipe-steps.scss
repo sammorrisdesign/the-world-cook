@@ -112,12 +112,15 @@
     }
 }
 
-.recipe-step__temp {
+.recipe-step__temp,
+.recipe-step__unit {
     display: none;
 }
 
 .imperial .recipe-step__temp--fahrenheit,
-.metric .recipe-step__temp--celsius {
+.imperial .recipe-step__unit--imperial,
+.metric .recipe-step__temp--celsius,
+.metric .recipe-step__unit--metric {
     display: inline;
 }
 
