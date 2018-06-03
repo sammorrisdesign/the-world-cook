@@ -9,6 +9,7 @@ module.exports = {
     bindings: function() {
         $('.recipe-intro__detail-unit').click(function(e) {
             region = $(e.currentTarget).data('unit');
+            this.enableAnimations();
             this.setRegion();
             this.storeRegionLocally();
         }.bind(this));
@@ -22,6 +23,10 @@ module.exports = {
         } else {
             this.detectRegion();
         }
+    },
+
+    enableAnimations: function() {
+        $('.recipe-intro__detail-ball').addClass('is-animatable');
     },
 
     checkLocalStorage: function() {
