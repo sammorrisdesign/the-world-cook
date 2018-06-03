@@ -40,17 +40,33 @@ function injectIngredientsIntoSteps(data) {
 
                 var $ = cheerio.load(data[i].steps[step].instructions);
 
-                $('.recipe-step__ingredient').each(function(i, el) {
+                $('.recipe-step__ingredient').each(function(ingredientNum, el) {
                     if ($(el).attr('data-ingredient').indexOf(' ') >= 0) {
                         var units = $(el).attr('data-ingredient').split(' ');
+                        var ingredientName = units[0].replace(/-/g, ' ').toUpperCase();
  
                         if (units.length == 3) {
                             $(el).attr('data-ingredient', units[0]);
-                            $(el).attr('data-imperial', units[1]);
-                            $(el).attr('data-metric', units[2]);
+
+                            for (var ingredient in data[i].ingredients) {
+                                if (data[i].ingredients[ingredient].ingredient.toUpperCase() === ingredientName) {
+                                    data[i].ingredients[ingredient].isHalfable = true;
+
+                                    if (data[i].ingredients[ingredient].halfSteps !== typeof Array) {
+                                        data[i].ingredients[ingredient].halfSteps = [];
+                                    }
+
+                                    data[i].ingredients[ingredient].halfSteps.push({
+                                        stepNum: parseInt(step) + 1,
+                                        imperial: prettifyAmount(units[1]),
+                                        metric: prettifyAmount(units[2])
+                                    });
+                                }
+                            }
+
                         }
                     }
-                });
+                }.bind(this));
 
                 data[i].steps[step].instructions = $('p').html();
             }

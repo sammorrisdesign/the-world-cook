@@ -7,12 +7,18 @@
             </svg>
             <ul class='recipe-ingredients__rows'>
                 {{#each ingredients}}
-                    <li class='recipe-ingredients__row recipe-ingredients__row--{{ handle }}'>
+                    <li class='recipe-ingredients__row recipe-ingredients__row--{{ handle }} {{#if isHalfable}}recipe-ingredients__row--is-halfable{{/if}}'>
                         <div class='recipe-ingredients__amount recipe-ingredients__amount--imperial'>
-                            {{{ imperial }}}
+                            <span class='recipe-ingredients__amount-text recipe-ingredients__amount-text--0'>{{{ imperial }}}</span>
+                            {{#each halfSteps}}
+                                <span class='recipe-ingredients__amount-text recipe-ingredients__amount-text--{{ stepNum }} is-hidden'>{{{ imperial }}}</span>
+                            {{/each}}
                         </div>
                         <div class='recipe-ingredients__amount recipe-ingredients__amount--metric'>
-                            {{{ metric }}}
+                            <span class='recipe-ingredients__amount-text recipe-ingredients__amount-text--0'>{{{ metric }}}</span>
+                            {{#each halfSteps}}
+                                <span class='recipe-ingredients__amount-text recipe-ingredients__amount-text--{{ stepNum }} is-hidden'>{{{ imperial }}}</span>
+                            {{/each}}
                         </div>
                         <div class='recipe-ingredients__ingredient'>
                             <span class='recipe-ingredients__ingredient-name'>{{ ingredient }} <em>{{ prepared }}</em></span>

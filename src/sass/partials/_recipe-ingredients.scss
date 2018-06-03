@@ -183,6 +183,12 @@
     display: none;
 }
 
+.recipe-ingredients__amount-text {
+    &.is-hidden {
+        display: none;
+    }
+}
+
 .imperial .recipe-ingredients__amount--imperial,
 .metric .recipe-ingredients__amount--metric {
     display: block;
