@@ -11,7 +11,7 @@ deploy({
     password: server.password,
     privateKey: server.privateKey,
     localDir: '.build',
-    remoteDir: '/var/www/theworldcook.com/public_html/beta.theworldcook.com'
+    remoteDir: '/var/www/theworldcook.com/public_html/shannyzone.theworldcook.com'
 }, {
     dryRun: false,
     exclude: [
