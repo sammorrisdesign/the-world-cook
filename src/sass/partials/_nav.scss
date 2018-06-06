@@ -19,6 +19,11 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    display: none;
+
+    @include mq(tablet) {
+        display: block;
+    }
 }
 
 .nav__item {
