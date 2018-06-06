@@ -7,7 +7,7 @@
             </svg>
             <ul class='recipe-ingredients__rows'>
                 {{#each ingredients}}
-                    <li class='recipe-ingredients__row recipe-ingredients__row--{{ handle }} {{#if isHalfable}}recipe-ingredients__row--is-halfable{{/if}}'>
+                    <li class='recipe-ingredients__row recipe-ingredients__row--{{ handlise ingredient }} {{#if isHalfable}}recipe-ingredients__row--is-halfable{{/if}}'>
                         <div class='recipe-ingredients__amount recipe-ingredients__amount--imperial'>
                             <span class='recipe-ingredients__amount-text recipe-ingredients__amount-text--0'>{{{ imperial }}}</span>
                             {{#each halfSteps}}

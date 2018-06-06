@@ -167,27 +167,6 @@ function cleanIngredientAmounts(data) {
     return data;
 }
 
-function createIngredientHandles(data) {
-    for (var i in data) {
-        var ingredients = [];
-
-        if (data[i].ingredients) {
-            for (ingredient in data[i].ingredients) {
-                var handlisedIngredient = helpers.handlise(data[i].ingredients[ingredient].ingredient);
-
-                if (ingredients.includes(handlisedIngredient)) {
-                    data[i].ingredients[ingredient].handle = handlisedIngredient + '-1';
-                } else {
-                    data[i].ingredients[ingredient].handle = handlisedIngredient;
-                }
-
-                ingredients.push(handlisedIngredient);
-            }
-        }
-    }
-
-    return data;
-}
 
 function createRelated(data) {
     for (var i in data) {
@@ -247,7 +226,6 @@ function getData() {
         data = convertUnitsToHTML(data)
         data = convertDescriptionsToHTML(data);
         data = cleanIngredientAmounts(data);
-        data = createIngredientHandles(data);
         data = addScheduleStatus(data);
         data = createRelated(data);
 
