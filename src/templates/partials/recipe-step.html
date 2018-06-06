@@ -3,7 +3,17 @@
         <div class='recipe-step__number'>
             <span class='recipe-step__number__digit'>{{ step @index }}</span>
         </div>
-        <div class='recipe-step__instructions'>{{{ instructions }}}</div>
+
+        <div class='recipe-step__text'>
+            <div class='recipe-step__instructions'>{{{ instructions }}}</div>
+            {{#if tip}}
+                <div class='recipe-step__tip recipe-step__tip--mobile'>
+                    <img class='recipe-step__line' src='/assets/icons/tip-mobile.svg' />
+                    <strong>Coach's tip</strong> {{ tip }}
+                </div>
+            {{/if}}
+        </div>
+
         <div class='recipe-step__corner recipe-step__corner--top-left'></div>
         <div class='recipe-step__corner recipe-step__corner--bottom-left'></div>
         <div class='recipe-step__corner recipe-step__corner--top-right'></div>
@@ -11,7 +21,7 @@
     </div>
     <div class='recipe-step__visual'>
         {{#if tip}}
-            <div class='recipe-step__tip recipe-step__tip--{{ tipSide }}'>
+            <div class='recipe-step__tip recipe-step__tip--tablet recipe-step__tip--{{ tipSide }}'>
                 <img class='recipe-step__line' src='/assets/icons/tip.svg' />
                 <strong>Coach's tip</strong> {{ tip }}
             </div>

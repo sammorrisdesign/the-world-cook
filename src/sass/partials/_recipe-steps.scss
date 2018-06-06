@@ -100,8 +100,15 @@
     font-weight: bold;
 }
 
-.recipe-step__instructions {
+.recipe-step__text {
     width: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.recipe-step__instructions {
     margin-top: -6px;
     font-size: 20px;
     line-height: 28px;
@@ -134,13 +141,31 @@
 }
 
 .recipe-step__tip {
-    position: absolute;
     z-index: 2;
-    width: 30%;
-    bottom: 20px;
-    color: $c-white;
     font-size: 20px;
     line-height: 28px;
+    display: none;
+
+    @include mq(tablet) {
+        position: absolute;
+        bottom: 20px;
+        width: 30%;
+    }
+
+    &--mobile {
+        @include mq($until: tablet) {
+            display: block;
+            color: $c-black;
+            margin-top: 24px;
+        }
+    }
+
+    &--tablet {
+        @include mq(tablet) {
+            display: block;
+            color: $c-white;
+        }
+    }
 
     strong {
         display: block;
@@ -148,9 +173,18 @@
 }
 
 .recipe-step__line {
-    width: 60%;
     position: absolute;
-    top: calc(-100% - 4px);
+    width: 90px;
+    left: 20px;
+    bottom: 11px;
+
+    @include mq(tablet) {
+        width: 60%;
+        position: absolute;
+        top: calc(-100% - 4px);
+        left: auto;
+        bottom: auto;
+    }
 }
 
 .recipe-step__tip--left {
