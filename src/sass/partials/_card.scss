@@ -184,13 +184,23 @@
 .card__country-name {
     font-size: 20px;
     margin: 0;
+    padding-right: 40px;
+
+    @include mq(tablet) {
+        padding-right: 60px;
+    }
 }
 
 .card__country-flag {
     border: 1px solid $c-black;
     position: absolute;
-    right: 12px;
-    bottom: -24px;
+    right: 7px;
+    bottom: -16px;
+
+    @include mq(tablet) {
+        right: 12px;
+        bottom: -24px;
+    }
 }
 
 .card__recipe {

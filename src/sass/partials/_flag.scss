@@ -1,10 +1,15 @@
 .flag {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     border-radius: 24px;
     background-color: $c-white;
     display: inline-block;
     overflow: hidden;
+
+    @include mq(tablet) {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 .flag__image {
