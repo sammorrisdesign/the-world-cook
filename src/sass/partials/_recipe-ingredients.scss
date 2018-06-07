@@ -21,7 +21,7 @@
                 left: 0;
                 right: 0;
                 z-index: 5;
-                padding: 6px 26px;
+                padding: 6px 20px;
             }
         }
 
@@ -93,14 +93,15 @@
     }
 
     .container {
-        position: relative;
-        overflow: auto;
+        @include mq($until: tablet) {
+            padding: 0;
+        }
     }
 }
 
 .recipe-ingredients__box {
     position: relative;
-    padding: 0 6px 6px 6px;
+    padding: 0 20px 6px 20px;
     margin: 0;
     box-sizing: border-box;
     background-color: $c-black;
@@ -109,6 +110,7 @@
 
     @include mq(tablet) {
         overflow: scroll;
+        padding: 0 6px 6px 6px;
         max-height: calc(100vh - 24px - 54px);
         float: right;
         width: 320px;
