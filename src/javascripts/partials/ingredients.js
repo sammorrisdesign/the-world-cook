@@ -100,7 +100,7 @@ module.exports = {
     },
 
     substituteIngredient: function(target) {
-        var $ingredient = $(target).parent().find('.recipe-ingredients__ingredient-name');
+        var $ingredient = $(target).parent().find('.recipe-ingredients__ingredient-name span');
         var oldIngredient = $ingredient.text();
         var newIngredient = $(target).attr('data-substitute');
 

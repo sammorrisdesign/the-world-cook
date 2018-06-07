@@ -21,7 +21,10 @@
                             {{/each}}
                         </div>
                         <div class='recipe-ingredients__ingredient'>
-                            <span class='recipe-ingredients__ingredient-name'>{{ ingredient }} <em>{{ prepared }}</em></span>
+                            <span class='recipe-ingredients__ingredient-name'>
+                                <span>{{ ingredient }}</span>
+                                <em>{{ prepared }}</em>
+                            </span>
                             {{#if substitute}}
                                 <div class='recipe-ingredients__substitute' title='Substitue ingredient' data-substitute='{{ substitute }}'>
                                     <svg class='recipe-ingredients__substitute-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
