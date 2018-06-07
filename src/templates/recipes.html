@@ -8,7 +8,7 @@
 
         {{> partials/recipe-ingredients }}
 
-        <ul class='recipe-steps container'>
+        <ul class='recipe-steps container' itemprop='recipeInstructions'>
             {{#each steps }}
                 {{> partials/recipe-step country=../country }}
             {{/each}}
