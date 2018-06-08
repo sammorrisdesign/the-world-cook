@@ -19,9 +19,9 @@ module.exports = {
         region = this.checkLocalStorage();
 
         if (region === null) {
-            region = this.detectRegion();
-        } else {
             this.detectRegion();
+        } else {
+            this.setRegion();
         }
     },
 
