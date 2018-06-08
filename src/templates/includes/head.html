@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html {{#if recipe}}itemscope itemtype='http://schema.org/Recipe'{{/if}}>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +10,14 @@
         <title>{{ recipe }} | The World Cook</title>
         <meta name="description" content="{{ description }}">
         <meta name="keywords" content="">
+        <meta itemprop="url" content="http://myrecipesite.com/recipe/{{ slug }}" />
     {{else}}
         <title>The World Cook</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
     {{/if}}
+
+    <meta property="og:site_name" content="www.theworldcook.com" />
 
     <!-- Favicons -->
     <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-precomposed.png" />
