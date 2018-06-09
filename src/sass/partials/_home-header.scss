@@ -27,12 +27,26 @@
     line-height: 28px;
 }
 
-.home-header__canvas {
+.home-header__background {
     position: absolute;
     z-index: 1;
-    top: 40px;
+    top: 0;
     left: 0;
     right: 0;
-    bottom: 40px;
-    width: 100%;
+    bottom: 0;
+    display: flex;
+}
+
+.home-header__canvas {
+    width: 50%;
+    height: calc(100% - 60px);
+    margin: 30px 0;
+}
+
+.home-header__image {
+    width: 50%;
+    background-image: url('./assets/test.jpg');
+    background-size: auto 100%;
+    background-position: left center;
+    background-color: #d5ddef;
 }
