@@ -16,4 +16,12 @@ if (pageType === 'recipe') {
 
     recipes.init();
     ingredients.init();
-}
+} else if (pageType === 'home') {
+    var header = require('./partials/header');
+
+    header.init();
+} 
+
+    var header = require('./partials/header');
+
+    header.init();

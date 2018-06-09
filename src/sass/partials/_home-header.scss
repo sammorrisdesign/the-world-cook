@@ -1,5 +1,10 @@
 .home-header {
     background-color: $c-green;
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
 }
 
 .home-header__content {
@@ -19,4 +24,14 @@
     margin: 0;
     font-size: 20px;
     line-height: 28px;
+}
+
+.home-header__canvas {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
 }
