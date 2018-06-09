@@ -157,22 +157,22 @@
     border-top: $c-grey solid 1px;
     transition: color 0.4s ease-in;
 
-    span {
-        position: relative;
-        overflow: hidden;
-        background-image: linear-gradient(to bottom, $c-grey 0%, $c-grey 100%);
-        background-size: 100% 1px;
-        background-repeat: no-repeat;
-        background-position: -300px .5em;
-        transition: background 0.4s ease-in;
-    }
-
     &.is-used {
         color: $c-grey;
+    }
+}
 
-        span {
-            background-position: 0 .5em;
-        }
+.recipe-ingredients__ingredient-name {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, $c-grey 0%, $c-grey 100%);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: -400px .5em;
+    transition: background 0.6s ease-in;
+
+    .is-used & {
+        background-position:  0 .5em;
     }
 }
 
