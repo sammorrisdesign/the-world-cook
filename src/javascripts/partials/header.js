@@ -37,7 +37,7 @@ module.exports = {
 
         planet.loadPlugin(this.drawBorder());
         planet.loadPlugin(this.drawGraticules());
-        planet.loadPlugin(this.rotateToPoint(50));
+        planet.loadPlugin(this.rotateToPoint(990));
         planet.projection.scale(height / 2).translate([width, height / 2]).rotate([0, -10, 0]);
 
         $('.home-header__canvas').attr('width', width).attr('height', height);
