@@ -78,7 +78,10 @@ for (var i in data) {
     }
 }
 
+data.level = 'home';
 buildHTMLFile('index', data);
+
+data.level = 'about';
 buildHTMLFile('about', data);
 
 // CSS

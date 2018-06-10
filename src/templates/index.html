@@ -17,7 +17,7 @@
         <div class='home-header__featured'>
             <p class='home-header__description'>
                 <strong>Featured recipe</strong><br />
-                Swedish meatballs
+                French Onion Soup
             </p>
         </div>
     </div>
@@ -31,7 +31,14 @@
 
     <div class='home-header__background'>
         <canvas class='home-header__canvas'></canvas>
-        <div class='home-header__image'></div>
+        <div class='home-header__image-container'>
+            <picture>
+                <source media="(min-width: 800px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 800px) and (min-resolution: 120dpi)" sizes="650px" srcset="/assets/images/recipes/france/home-header--1300.jpg 1300w">
+                <source media="(min-width: 800px)" sizes="650px" srcset="/assets/images/recipes/france/home-header--650.jpg 650w">
+                <source media="(-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)" sizes="380px" srcset="/assets/images/recipes/france/home-header--650.jpg 650w">
+                <img itemprop='image' class='home-header__image' src='/assets/images/recipes/france/home-header--320.jpg'>
+            </picture>
+        </div>
     </div>
 </div>
 

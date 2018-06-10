@@ -35,8 +35,8 @@ module.exports = {
         planet = planetaryjs.planet();
         planet.loadPlugin(planetaryjs.plugins.earth({
             topojson: { file: 'assets/data/world-110m.json' },
-            oceans:   { fill:   '#3399cc', stroke: '#fff', lineWidth: 1 },
-            land:     { fill:   '#3399cc', stroke: '#fff', lineWidth: 1 },
+            oceans:   { fill:   'transparent', stroke: '#fff', lineWidth: 1 },
+            land:     { fill:   'transparent', stroke: '#fff', lineWidth: 1 },
             borders:  { stroke: '#fff', lineWidth: 1 }
         }));
 

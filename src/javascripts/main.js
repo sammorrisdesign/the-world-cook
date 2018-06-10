@@ -10,18 +10,13 @@ analytics.init();
 
 var pageType = $('body').attr('data-page-type');
 
-if (pageType === 'recipe') {
-    var recipes = require('./partials/recipes');
-    var ingredients = require('./partials/ingredients');
+var header = require('./partials/header');
+var recipes = require('./partials/recipes');
+var ingredients = require('./partials/ingredients');
 
+if (pageType === 'recipe') {
     recipes.init();
     ingredients.init();
 } else if (pageType === 'home') {
-    var header = require('./partials/header');
-
     header.init();
-} 
-
-    var header = require('./partials/header');
-
-    header.init();
+}

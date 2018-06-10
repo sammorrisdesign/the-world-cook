@@ -12,7 +12,6 @@ var importedImage = process.argv.slice(2)[0];
 var images = importedImage ? [importedImage] : glob.readdirSync('src/assets/images/recipes/**/*.jpg');
 
 for (var i in images) {
-
     console.log(images[i]);
     var hasExported = false;
 
@@ -54,6 +53,8 @@ fs.copySync('.images', '.build/assets/images/recipes/');
 function getSizes(fileName) {
     if (fileName === 'header') {
         return [2600, 1300, 1040, 520, 260]
+    } else if (fileName === 'home-header') {
+        return [1300, 1000, 650, 320]
     } else {
         return [1520, 840, 760, 420]
     }
