@@ -14,7 +14,7 @@ module.exports = {
     bindings: function() {
         $(window).resize(function() {
             this.setCanvasSize();
-            this.createGlobe();
+            this.resizeGlobe();
         }.bind(this));
     },
 
@@ -24,6 +24,11 @@ module.exports = {
         height = $('.home-header__canvas').height();
         context = canvas.getContext('2d');
         context.scale(2, 2);
+        $('.home-header__canvas').attr('width', width).attr('height', height);
+    },
+
+    resizeGlobe: function() {
+        planet.projection.scale(height / 2).translate([width, height / 2]);
     },
 
     createGlobe: function() {
@@ -39,8 +44,6 @@ module.exports = {
         planet.loadPlugin(this.drawGraticules());
         planet.loadPlugin(this.rotateToPoint(990));
         planet.projection.scale(height / 2).translate([width, height / 2]).rotate([0, -10, 0]);
-
-        $('.home-header__canvas').attr('width', width).attr('height', height);
         planet.draw(canvas);
     },
 
