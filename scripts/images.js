@@ -54,7 +54,7 @@ function getSizes(fileName) {
     if (fileName === 'header') {
         return [2600, 1300, 1040, 520, 260]
     } else if (fileName === 'home-header') {
-        return [1300, 1000, 650, 320]
+        return [1024, 512, 256]
     } else {
         return [1520, 840, 760, 420]
     }
