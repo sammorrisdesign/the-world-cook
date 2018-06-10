@@ -12,17 +12,17 @@
     h2 {
         font-size: 28px;
         line-height: 32px;
-        color: $c-green;
+        color: $c-blue;
         margin: 48px 0 0;
     }
 
     a {
-        color: $c-green;
+        color: $c-blue;
         border-bottom: 1px solid $c-black;
 
         &:hover {
             text-decoration: none;
-            border-bottom-color: $c-green;
+            border-bottom-color: $c-blue;
         }
     }
 }
