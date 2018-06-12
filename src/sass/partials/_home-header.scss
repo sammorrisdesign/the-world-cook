@@ -64,10 +64,17 @@
     bottom: 20px;
     right: 20px;
     text-align: right;
-    color: $c-white;
 
     .home-header__description {
         padding-right: 0;
+    }
+}
+
+a.home-header__featured-link {
+    color: $c-white;
+
+    &:hover {
+        border-color: $c-blue;
     }
 }
 
