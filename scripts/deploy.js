@@ -2,7 +2,14 @@ var deploy = require('sftp-sync-deploy').deploy;
 var fs = require('fs-extra');
 var server = require('../keys.json').server;
 
-fs.writeFileSync('.build/robots.txt', 'User-agent: *\nDisallow: /');
+var isProduction = false;
+
+if (isProduction) {
+    var remoteDir = 'var/www/theworldcook.com/public_html/'
+} else {
+    var remoteDir = '/var/www/theworldcook.com/public_html/shannyzone.theworldcook.com';
+    fs.writeFileSync('.build/robots.txt', 'User-agent: *\nDisallow: /');
+}
 
 deploy({
     host: server.host,
@@ -11,11 +18,12 @@ deploy({
     password: server.password,
     privateKey: server.privateKey,
     localDir: '.build',
-    remoteDir: '/var/www/theworldcook.com/public_html/shannyzone.theworldcook.com'
+    remoteDir: remoteDir
 }, {
     dryRun: false,
     exclude: [
-      '**/.DS_Store'
+      '**/.DS_Store',
+      'shannyzone.theworldcook.com/**/*'
     ]
 }).then(function() {
     console.log('success!');
