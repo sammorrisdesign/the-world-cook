@@ -53,7 +53,7 @@ function injectIngredientsIntoSteps(data) {
                                 if (data[i].ingredients[ingredient].ingredient.toUpperCase() === ingredientName.replace(/-/g, ' ').toUpperCase()) {
                                     data[i].ingredients[ingredient].isHalfable = true;
 
-                                    if (data[i].ingredients[ingredient].halfSteps !== typeof Array) {
+                                    if (typeof data[i].ingredients[ingredient].halfSteps != 'object') {
                                         data[i].ingredients[ingredient].halfSteps = [];
                                     }
 
@@ -198,7 +198,7 @@ function createRelated(data) {
 function addScheduleStatus(data) {
     for (var i in data) {
 //         var currentDate = new Date();
-        var currentDate = new Date('June 11 2018');
+        var currentDate = new Date('June 12 2018');
         var publishDate = new Date('June ' + data[i].date + ' 2018');
 
         data[i].isScheduled = currentDate >= publishDate;
