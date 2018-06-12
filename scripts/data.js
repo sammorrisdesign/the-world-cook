@@ -138,7 +138,7 @@ function convertUnitsToHTML(data) {
 function convertDescriptionsToHTML(data) {
     for (var i in data) {
         if (data[i].description) {
-            
+            data[i].plainDescription = data[i].description;
             data[i].description = markdown.toHTML(data[i].description);
         }
     }
