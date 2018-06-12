@@ -118,7 +118,7 @@
     }
 
     .card--green & {
-        transform: rotate(.25deg) translateY(2px) translateX(6px);
+        transform: rotate(.25deg) translateY(2px) translateX(-6px);
     }
 
     &:hover {
