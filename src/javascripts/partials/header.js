@@ -44,7 +44,11 @@ module.exports = {
         planet.loadPlugin(this.drawGraticules());
         planet.loadPlugin(this.rotateToPoint(990));
         planet.projection.scale(height / 2).translate([width, height / 2]).rotate([0, -10, 0]);
+
         planet.draw(canvas);
+        planet.onInit(function() {
+            $('.home-header__canvas').addClass('is-init');
+        });
     },
 
     drawBorder: function() {
