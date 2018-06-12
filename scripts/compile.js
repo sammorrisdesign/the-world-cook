@@ -73,7 +73,7 @@ function buildHTMLFile(template, pageData = {}, dest = template) {
 }
 
 for (var i in data) {
-    if (data[i].steps) {
+    if (data[i].steps && data[i].isScheduled) {
         buildHTMLFile('recipes',  data[i], 'recipes/' + data[i].slug)
     }
 }
