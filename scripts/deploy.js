@@ -2,10 +2,10 @@ var deploy = require('sftp-sync-deploy').deploy;
 var fs = require('fs-extra');
 var server = require('../keys.json').server;
 
-var isProduction = false;
+var isProduction = true;
 
 if (isProduction) {
-    var remoteDir = 'var/www/theworldcook.com/public_html/'
+    var remoteDir = '/var/www/theworldcook.com/public_html/'
 } else {
     var remoteDir = '/var/www/theworldcook.com/public_html/shannyzone.theworldcook.com';
     fs.writeFileSync('.build/robots.txt', 'User-agent: *\nDisallow: /');
