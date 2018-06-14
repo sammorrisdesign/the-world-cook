@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/sammorrisdesign/the-world-cook#readme",
   "devDependencies": {
+    "async": "^2.6.1",
     "browserify": "^14.4.0",
     "cheerio": "^1.0.0-rc.2",
     "d3": "^3.5.17",

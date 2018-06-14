@@ -1,6 +1,8 @@
 var fs = require('fs-extra');
 var deasync = require('deasync');
 var gsjson = require('google-spreadsheet-to-json');
+var GoogleSpreadsheet = require('google-spreadsheet');
+var async = require('async');
 var markdown = require('markdown').markdown;
 var cheerio = require('cheerio');
 
@@ -8,6 +10,72 @@ var helpers = require('./helpers.js');
 
 var isDone = false;
 var data = {};
+
+var sheetsToGet = [ 'recipes',
+  'iranIngredients',
+  'iranSteps',
+  'senegalIngredients',
+  'senegalSteps',
+  'egyptIngredients',
+  'egyptSteps',
+  'icelandIngredients',
+  'icelandSteps',
+  'switzerlandIngredients',
+  'switzerlandSteps',
+  'belgiumIngredients',
+  'belgiumSteps',
+  'franceIngredients',
+  'franceSteps',
+  'denmarkIngredients',
+  'denmarkSteps',
+  'costa-ricaIngredients',
+  'costa-ricaSteps',
+  'germanyIngredients',
+  'germanySteps',
+  'south-koreaIngredients',
+  'south-koreaSteps',
+  'polandIngredients',
+  'polandSteps',
+  'saudi-arabiaIngredients',
+  'saudi-arabiaSteps',
+  'australiaIngredients',
+  'australiaSteps',
+  'nigeriaIngredients',
+  'nigeriaSteps',
+  'croatiaIngredients',
+  'croatiaSteps',
+  'japanIngredients',
+  'japanSteps',
+  'tunisiaIngredients',
+  'tunisiaSteps',
+  'englandIngredients',
+  'englandSteps',
+  'uruguayIngredients',
+  'uruguaySteps',
+  'panamaIngredients',
+  'panamaSteps',
+  'portugalIngredients',
+  'portugalSteps',
+  'brazilIngredients',
+  'brazilSteps',
+  'russiaIngredients',
+  'russiaSteps',
+  'spainIngredients',
+  'spainSteps',
+  'swedenIngredients',
+  'swedenSteps',
+  'serbiaIngredients',
+  'serbiaSteps',
+  'mexicoIngredients',
+  'mexicoSteps',
+  'colombiaSteps',
+  'colombiaIngredients',
+  'moroccoIngredients',
+  'moroccoSteps',
+  'argentinaIngredients',
+  'argentinaSteps',
+  'peruIngredients',
+  'peruSteps' ];
 
 function organiseIntoRecipe(data) {
     var organisedData = {};
@@ -198,7 +266,7 @@ function createRelated(data) {
 function addScheduleStatus(data) {
     for (var i in data) {
 //         var currentDate = new Date();
-        var currentDate = new Date('June 12 2018');
+        var currentDate = new Date('June 14 2018');
         var publishDate = new Date('June ' + data[i].date + ' 2018');
 
         data[i].isScheduled = currentDate >= publishDate;
@@ -207,19 +275,44 @@ function addScheduleStatus(data) {
     return data;
 }
 
-function getData() {
+function getSheet(sheetName) {
+    var hasSheet = false;
+    var sheet;
+
     gsjson({
         spreadsheetId: '1i-wdm0_QJPuku8FTXIxDOyian3Drqz5KllnChMBjUCg',
-        allWorksheets: true,
+        worksheet: sheetName,
         credentials: require('../keys.json').google
     }).then(function(result) {
-        // organise response in a useable way
-        for (var worksheet in result) {
-            for (var worksheetTitle in result[worksheet]) {
-                data[worksheetTitle] = result[worksheet][worksheetTitle];
-            }
-        }
+        sheet = result;
+        hasSheet = true;
+    }).catch(function(err) {
+        console.log(err.message);
+        console.log(err.stack);
+        isDone = true;
 
+        return;
+    });
+
+    deasync.loopWhile(function() {
+        return !hasSheet;
+    });
+
+    return sheet[sheetName];
+}
+
+function getData() {
+    async.eachSeries(sheetsToGet, function(sheetName, callback) {
+        console.log(sheetName);
+        data[sheetName] = getSheet(sheetName);
+        console.log('getting ' + sheetName);
+//         setTimeout(function() {
+            callback()
+//         }, 10);
+    }, function() {
+        console.log(data);
+
+    
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
         data = convertTempsToHTML(data);
@@ -234,12 +327,6 @@ function getData() {
         console.log('data updated');
 
         isDone = true;
-    }).catch(function(err) {
-        console.log(err.message);
-        console.log(err.stack);
-        isDone = true;
-
-        return;
     });
 
     deasync.loopWhile(function() {
