@@ -303,16 +303,10 @@ function getSheet(sheetName) {
 
 function getData() {
     async.eachSeries(sheetsToGet, function(sheetName, callback) {
-        console.log(sheetName);
+        console.log('fetching ' + sheetName);
         data[sheetName] = getSheet(sheetName);
-        console.log('getting ' + sheetName);
-//         setTimeout(function() {
-            callback()
-//         }, 10);
+        callback()
     }, function() {
-        console.log(data);
-
-    
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
         data = convertTempsToHTML(data);

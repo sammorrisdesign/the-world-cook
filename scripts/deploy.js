@@ -24,7 +24,8 @@ deploy({
     exclude: [
       '**/.DS_Store',
       'shannyzone.theworldcook.com/**/*'
-    ]
+    ],
+    forceUpload: true
 }).then(function() {
     console.log('success!');
 }).catch(function(err) {
