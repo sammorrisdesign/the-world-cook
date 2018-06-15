@@ -1,6 +1,6 @@
 .home-header {
     position: relative;
-    background-color: $c-blue;
+    background-color: $c-green;
 
     .container {
         position: relative;
@@ -11,6 +11,11 @@
         @include mq($until: tablet) {
             display: none;
         }
+    }
+
+    .nav__logo a,
+    .nav__item a {
+        color: $c-yellow;
     }
 }
 
@@ -30,7 +35,7 @@
     width: 50%;
     max-width: 460px;
     padding: 122px 0 190px 0;
-    color: $c-white;
+    color: $c-yellow;
     display: none;
 
     @include mq(tablet) {
@@ -42,7 +47,7 @@
     margin: 0;
     font-size: 38px;
     line-height: .9;
-    color: $c-white;
+    color: $c-yellow;
 
     @include mq(tablet) {
         font-size: 60px;
@@ -71,10 +76,10 @@
 }
 
 a.home-header__featured-link {
-    color: $c-white;
+    color: $c-yellow;
 
     &:hover {
-        border-color: $c-blue;
+        border-color: $c-yellow;
     }
 }
 

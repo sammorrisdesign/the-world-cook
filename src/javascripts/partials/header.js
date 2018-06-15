@@ -35,9 +35,9 @@ module.exports = {
         planet = planetaryjs.planet();
         planet.loadPlugin(planetaryjs.plugins.earth({
             topojson: { file: 'assets/data/world-110m.json' },
-            oceans:   { fill:   'transparent', stroke: '#fff', lineWidth: 1 },
-            land:     { fill:   'transparent', stroke: '#fff', lineWidth: 1 },
-            borders:  { stroke: '#fff', lineWidth: 1 }
+            oceans:   { fill:   'transparent', stroke: '#fedf00', lineWidth: 1 },
+            land:     { fill:   'transparent', stroke: '#fedf00', lineWidth: 1 },
+            borders:  { stroke: '#fedf00', lineWidth: 1 }
         }));
 
         planet.loadPlugin(this.drawBorder());
@@ -58,7 +58,7 @@ module.exports = {
                     context.beginPath();
                     planet.path.context(context)({type: 'Sphere'});
 
-                    context.strokeStyle = '#fff';
+                    context.strokeStyle = '#fedf00';
                     context.lineWidth = 1;
                     context.stroke();
                 });
@@ -73,7 +73,7 @@ module.exports = {
                     var graticule = d3.geo.graticule().step([20, 20]);
                     context.beginPath();
                     planet.path.context(context)(graticule());
-                    context.strokeStyle = '#fff';
+                    context.strokeStyle = '#fedf00';
                     context.lineWidth = 1;
                     context.stroke();
                 });
