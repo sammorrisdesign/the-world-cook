@@ -7,6 +7,7 @@
 
     {{#if recipe}}
         <title>{{ recipe }} | The World Cook</title>
+        <link rel="canonical" itemprop="url" content="http://www.theworldcook.com/recipe/{{ slug }}.html">
         <meta name="description" content="{{ plainDescription }}">
         <meta property="og:type" content="article" />
         <meta property="og:title" content="{{ recipe }} | The World Cook" />
@@ -15,8 +16,12 @@
         <meta property="og:site_name" content="The World Cook" />
         <meta property="article:published_time" content="2018-06-{{ date }}T00:00:00+00:00" />
         <meta property="article:author" content="The World Cook" />
-        <link rel="canonical" itemprop="url" content="http://www.theworldcook.com/recipe/{{ slug }}.html">
         <meta property="og:image" content="https://www.theworldcook.com/assets/images/recipes/{{ handlise country }}/header--1300.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@worldcook2018" />
+        <meta name="twitter:title" content="{{ recipe }}" />
+        <meta name="twitter:description" content="{{ plainDescription }}" />
+        <meta name="twitter:image" content="https://www.theworldcook.com/assets/images/recipes/{{ handlise country }}/header--1300.jpg" />
     {{else}}
         <title>The World Cook</title>
         <link rel="canonical" href="http://www.theworldcook.com">
@@ -26,7 +31,12 @@
         <meta property="og:site_name" content="The World Cook" />
         <meta property="article:published_time" content="2018-06-12T00:00:00+00:00" />
         <meta property="article:author" content="The World Cook" />
-        <meta property="og:image" content="http://www.theworldcook.com/assets/images/recipes/denmark/header--2600.jpg"
+        <meta property="og:image" content="http://www.theworldcook.com/assets/images/recipes/denmark/header--2600.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@worldcook2018" />
+        <meta name="twitter:title" content="The World Cook" />
+        <meta name="twitter:description" content="An interactive cookbook of recipes from all 32 nations vying for the biggest trophy in sports – the World Cup" />
+        <meta name="twitter:image" content="http://www.theworldcook.com/assets/images/recipes/denmark/header--2600.jpg" />
     {{/if}}
 
     <!-- Favicons -->

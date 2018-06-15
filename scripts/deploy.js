@@ -7,7 +7,7 @@ var isProduction = true;
 if (isProduction) {
     var remoteDir = '/var/www/theworldcook.com/public_html/'
 } else {
-    var remoteDir = '/var/www/theworldcook.com/public_html/shannyzone.theworldcook.com';
+    var remoteDir = '/var/www/theworldcook.com/shannyzone.theworldcook.com';
     fs.writeFileSync('.build/robots.txt', 'User-agent: *\nDisallow: /');
 }
 
@@ -23,8 +23,11 @@ deploy({
     dryRun: false,
     exclude: [
       '**/.DS_Store',
+      'assets/images/recipes',
+      'assets/images/recipes/**/*',
       'shannyzone.theworldcook.com/**/*'
     ],
+    excludeMode: 'ignore',
     forceUpload: true
 }).then(function() {
     console.log('success!');
