@@ -15,7 +15,7 @@
     margin-bottom: 16px;
     font-size: 28px;
     line-height: 32px;
-    color: $c-green;
+    color: $c-light-blue;
 
     @include mq(desktopPlus) {
         position: absolute;
@@ -232,6 +232,6 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    color: $c-green;
+    color: $c-light-blue;
     font-style: italic;
 }

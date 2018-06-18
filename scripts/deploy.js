@@ -2,7 +2,7 @@ var deploy = require('sftp-sync-deploy').deploy;
 var fs = require('fs-extra');
 var server = require('../keys.json').server;
 
-var isProduction = true;
+var isProduction = false;
 
 if (isProduction) {
     var remoteDir = '/var/www/theworldcook.com/public_html/'
@@ -24,8 +24,7 @@ deploy({
     exclude: [
       '**/.DS_Store',
       'assets/images/recipes',
-      'assets/images/recipes/**/*',
-      'shannyzone.theworldcook.com/**/*'
+      'assets/images/recipes/**/*'
     ],
     excludeMode: 'ignore',
     forceUpload: true

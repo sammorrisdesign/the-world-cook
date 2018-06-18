@@ -1,6 +1,6 @@
 .home-header {
     position: relative;
-    background-color: $c-green;
+    background-color: $c-light-blue;
 
     .container {
         position: relative;
@@ -13,9 +13,12 @@
         }
     }
 
-    .nav__logo a,
-    .nav__item a {
+    .nav__logo a {
         color: $c-yellow;
+    }
+
+    .nav__item a {
+        color: $c-light-blue;
     }
 }
 
@@ -76,10 +79,10 @@
 }
 
 a.home-header__featured-link {
-    color: $c-yellow;
+    color: $c-light-blue;
 
     &:hover {
-        border-color: $c-yellow;
+        border-color: $c-light-blue;
     }
 }
 
@@ -108,7 +111,7 @@ a.home-header__featured-link {
 .home-header__image-container {
     position: relative;
     width: 50%;
-    background-color: $c-red;
+    background-color: $c-yellow;
 }
 
 .home-header__image {
