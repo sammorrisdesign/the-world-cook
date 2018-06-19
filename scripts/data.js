@@ -187,9 +187,9 @@ function convertUnitsToHTML(data) {
             }
 
             matches.forEach(function(index) {
-                var endIndex = string.indexOf('}');
+                var endIndex = string.lastIndexOf('}');
                 var bothUnits = string.substring(index, endIndex);
-                var divide = string.indexOf(':');
+                var divide = string.lastIndexOf(':');
                 var imperial = string.substring(index + 1, divide);
                 var metric = string.substring(divide + 1, endIndex);
 
@@ -266,7 +266,7 @@ function createRelated(data) {
 function addScheduleStatus(data) {
     for (var i in data) {
 //         var currentDate = new Date();
-        var currentDate = new Date('June 18 2018');
+        var currentDate = new Date('June 19 2018');
         var publishDate = new Date('June ' + data[i].date + ' 2018');
 
         data[i].isScheduled = currentDate >= publishDate;
