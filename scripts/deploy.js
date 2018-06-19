@@ -2,7 +2,7 @@ var deploy = require('sftp-sync-deploy').deploy;
 var fs = require('fs-extra');
 var server = require('../keys.json').server;
 
-var isProduction = false;
+var isProduction = true;
 
 if (isProduction) {
     var remoteDir = '/var/www/theworldcook.com/public_html/'
