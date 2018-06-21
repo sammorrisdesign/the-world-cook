@@ -266,7 +266,7 @@ function createRelated(data) {
 function addScheduleStatus(data) {
     for (var i in data) {
 //         var currentDate = new Date();
-        var currentDate = new Date('June 19 2018');
+        var currentDate = new Date('June 21 2018');
         var publishDate = new Date('June ' + data[i].date + ' 2018');
 
         data[i].isScheduled = currentDate >= publishDate;
@@ -305,7 +305,7 @@ function getData() {
     async.eachSeries(sheetsToGet, function(sheetName, callback) {
         console.log('fetching ' + sheetName);
         data[sheetName] = getSheet(sheetName);
-        callback()
+        callback();
     }, function() {
         data = organiseIntoRecipe(data);
         data = injectIngredientsIntoSteps(data);
