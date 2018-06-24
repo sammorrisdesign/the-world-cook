@@ -266,7 +266,7 @@ function createRelated(data) {
 function addScheduleStatus(data) {
     for (var i in data) {
 //         var currentDate = new Date();
-        var currentDate = new Date('June 22 2018');
+        var currentDate = new Date('June 25 2018');
         var publishDate = new Date('June ' + data[i].date + ' 2018');
 
         data[i].isScheduled = currentDate >= publishDate;
