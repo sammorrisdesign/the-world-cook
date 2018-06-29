@@ -1,6 +1,6 @@
 .home-header {
     position: relative;
-    background-color: $c-light-blue;
+    background-color: $c-white;
 
     .container {
         position: relative;
@@ -14,11 +14,11 @@
     }
 
     .nav__logo a {
-        color: $c-yellow;
+        color: $c-red;
     }
 
     .nav__item a {
-        color: $c-light-blue;
+        color: $c-white;
     }
 }
 
@@ -38,7 +38,7 @@
     width: 50%;
     max-width: 460px;
     padding: 122px 0 190px 0;
-    color: $c-yellow;
+    color: $c-red;
     display: none;
 
     @include mq(tablet) {
@@ -50,7 +50,7 @@
     margin: 0;
     font-size: 38px;
     line-height: .9;
-    color: $c-yellow;
+    color: $c-red;
 
     @include mq(tablet) {
         font-size: 60px;
@@ -79,10 +79,10 @@
 }
 
 a.home-header__featured-link {
-    color: $c-light-blue;
+    color: $c-white;
 
     &:hover {
-        border-color: $c-light-blue;
+        border-color: $c-white;
     }
 }
 
@@ -111,7 +111,7 @@ a.home-header__featured-link {
 .home-header__image-container {
     position: relative;
     width: 50%;
-    background-color: $c-yellow;
+    background-color: $c-red;
 }
 
 .home-header__image {

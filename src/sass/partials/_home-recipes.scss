@@ -64,13 +64,13 @@
 }
 
 .home-recipes__filter {
-    color: $c-light-blue; 
+    color: $c-red; 
     text-indent: 22px;
 }
 
 .home-recipes__filter-ball {
     fill: none;
-    stroke: $c-light-blue;
+    stroke: $c-red;
     stroke-width: 6px;
     width: 16px;
     position: absolute;
@@ -86,7 +86,7 @@
     color: $c-black;
 
     &:hover {
-        color: $c-light-blue;
+        color: $c-red;
     }
 }
 
