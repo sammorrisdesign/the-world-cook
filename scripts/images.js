@@ -29,6 +29,14 @@ for (var i in images) {
                 dest = dest.substring(0, dest.lastIndexOf('/') + 1);
             var sizes = getSizes(fileName);
 
+            // create Twitter image
+            if (fileName === 'header') {
+                image.clone()
+                    .cover(2000, 1000)
+                    .quality(80)
+                    .write(dest + 'twitter.jpg')
+            }
+
             // convert image to sizes
             for (var s in sizes) {
                 image.resize(sizes[s], jimp.AUTO)
